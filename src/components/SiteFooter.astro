@@ -1,0 +1,31 @@
+---
+import { WHATSAPP_URL } from '../config';
+---
+
+<footer class="mx-auto max-w-7xl px-6 py-24">
+  <div class="rounded-[2rem] border border-border bg-card p-10 text-center shadow-2xl md:p-20">
+    <h2 class="mb-6 text-4xl font-bold text-brand-secondary md:text-5xl">
+      Ready to claim the <span class="font-serif italic text-brand-primary">top spot</span>?
+    </h2>
+    <p class="mx-auto mb-10 max-w-xl text-lg text-muted-foreground">
+      Free 15-minute consultation for Pakistani startups. Reply guaranteed within 2 hours on WhatsApp.
+    </p>
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noreferrer"
+      class="inline-flex items-center gap-3 rounded-2xl bg-brand-primary px-8 py-4 text-lg font-bold text-white transition-transform hover:scale-105 sm:px-10 sm:py-5 sm:text-xl"
+    >
+      Let's Talk Business
+      <span class="text-accent">→</span>
+    </a>
+    <div class="mt-12 flex flex-col items-center justify-between gap-6 border-t border-border pt-12 md:flex-row">
+      <p class="font-serif text-sm italic text-muted-foreground">Based in Lahore. Serving the world.</p>
+      <div class="flex gap-6 text-sm font-semibold">
+        <a href="#" class="text-brand-secondary transition-colors hover:text-accent">LinkedIn</a>
+        <a href="#" class="text-brand-secondary transition-colors hover:text-accent">Behance</a>
+        <a href="#" class="text-brand-secondary transition-colors hover:text-accent">Twitter</a>
+      </div>
+    </div>
+  </div>
+</footer>
