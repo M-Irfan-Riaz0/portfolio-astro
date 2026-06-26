@@ -4,9 +4,14 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
+import cloudflare from "@astrojs/cloudflare";
+
 export default defineConfig({
-  site: 'https://irfan.dev', // update to your actual domain before deploy
+  // update to your actual domain before deploy
+  site: 'https://irfan.dev',
+
   integrations: [react(), mdx(), sitemap()],
+
   vite: {
     plugins: [tailwindcss()],
     resolve: {
@@ -15,4 +20,6 @@ export default defineConfig({
       },
     },
   },
+
+  adapter: cloudflare()
 });
