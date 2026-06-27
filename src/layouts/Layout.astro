@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css';
 import { SITE_URL } from '../config';
+import WhatsAppWidget from '../components/WhatsAppWidget.astro';
 
 interface Props {
   title: string;
@@ -43,5 +44,6 @@ const canonicalURL = new URL(Astro.url.pathname, SITE_URL);
   </head>
   <body>
     <slot />
+    <WhatsAppWidget />
   </body>
 </html>

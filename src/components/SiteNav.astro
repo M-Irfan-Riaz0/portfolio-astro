@@ -25,7 +25,7 @@ const getLinkHref = (link: { anchor?: string; href?: string }) =>
     </a>
 
     <!-- Desktop links -->
-    <div class="hidden gap-8 text-sm font-medium uppercase tracking-widest md:flex">
+    <div class="hidden items-center gap-7 text-[0.95rem] font-medium tracking-tight text-brand-primary/80 md:flex">
       {NAV_LINKS.map((link) => (
         <a href={getLinkHref(link)} class="transition-colors hover:text-accent">{link.label}</a>
       ))}
@@ -73,7 +73,7 @@ const getLinkHref = (link: { anchor?: string; href?: string }) =>
       {NAV_LINKS.map((link) => (
         <a
           href={getLinkHref(link)}
-          class="rounded-lg px-3 py-3 text-sm font-medium uppercase tracking-widest transition-colors hover:bg-brand-primary/5 hover:text-accent"
+          class="rounded-lg px-3 py-3 text-base font-medium tracking-tight transition-colors hover:bg-brand-primary/5 hover:text-accent"
         >
           {link.label}
         </a>

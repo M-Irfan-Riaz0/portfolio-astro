@@ -17,6 +17,13 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
+// Related posts: same category first, then fill with most recent others.
+const allPosts = await getCollection('blog');
+const others = allPosts.filter((p) => p.id !== post.id);
+const sameCategory = others.filter((p) => p.data.category === post.data.category);
+const fallback = others.filter((p) => p.data.category !== post.data.category);
+const relatedPosts = [...sameCategory, ...fallback].slice(0, 3);
+
 const pageTitle = `${post.data.title} ${post.data.titleAccent} ${post.data.titleTail} — Irfan`;
 const ogImage = post.data.ogImage ?? blogImage.src;
 ---
@@ -117,6 +124,50 @@ const ogImage = post.data.ogImage ?? blogImage.src;
         </a>
       </div>
     </article>
+
+    <!-- Related posts -->
+    {relatedPosts.length > 0 && (
+      <section class="border-t border-border bg-muted/30">
+        <div class="mx-auto max-w-5xl px-6 py-16">
+          <div class="mb-8 flex items-end justify-between gap-4">
+            <div>
+              <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">Keep reading</span>
+              <h2 class="mt-2 text-2xl font-bold tracking-tight text-brand-secondary sm:text-3xl">
+                Related <span class="font-serif italic text-brand-primary">articles</span>
+              </h2>
+            </div>
+            <a href="/blog" class="hidden shrink-0 text-sm font-bold text-brand-primary transition-colors hover:text-accent sm:inline">
+              View all →
+            </a>
+          </div>
+
+          <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedPosts.map((rel) => (
+              <a
+                href={`/blog/${rel.id}`}
+                class="group flex flex-col rounded-2xl border border-border bg-card p-6 transition-all hover:border-brand-primary/30 hover:shadow-lg hover:shadow-brand-primary/5"
+              >
+                <div class="mb-3 flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+                  <span class="rounded-full bg-brand-primary/10 px-2.5 py-1 text-brand-primary">{rel.data.category}</span>
+                  <span>{rel.data.readMinutes} min read</span>
+                </div>
+                <h3 class="mb-2 text-lg font-bold leading-tight tracking-tight text-brand-secondary">
+                  {rel.data.title}{" "}
+                  <span class="font-serif font-normal italic text-brand-primary">{rel.data.titleAccent}</span>{" "}
+                  {rel.data.titleTail}
+                </h3>
+                <p class="mb-4 line-clamp-2 flex-1 text-sm leading-relaxed text-muted-foreground">
+                  {rel.data.excerpt}
+                </p>
+                <span class="inline-flex items-center gap-1.5 text-sm font-bold text-brand-primary transition-transform group-hover:gap-2.5">
+                  Read article →
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
 
     <SiteFooter />
 
