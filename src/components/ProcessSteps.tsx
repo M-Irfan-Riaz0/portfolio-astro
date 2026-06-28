@@ -73,10 +73,10 @@ export default function ProcessSteps() {
               onClick={() => setActive(i)}
               aria-pressed={isActive}
               style={{ animationDelay: `${i * 80}ms` }}
-              className={`group animate-fade-in relative cursor-pointer rounded-3xl border bg-card p-7 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary ${
+              className={`group animate-fade-in relative cursor-pointer rounded-[1.75rem] border p-7 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary ${
                 isActive
-                  ? "-translate-y-1 border-brand-primary/40 shadow-elegant"
-                  : "border-border"
+                  ? "ui-card -translate-y-1 border-brand-primary/40 shadow-elegant"
+                  : "ui-card border-border"
               }`}
             >
               <div className="relative z-10 mb-6 flex items-center justify-between">
@@ -116,7 +116,7 @@ export default function ProcessSteps() {
       {/* Detail panel */}
       <div
         key={active}
-        className="animate-fade-in rounded-3xl border border-brand-primary/15 bg-card p-8 shadow-elegant md:p-10"
+        className="ui-card animate-fade-in rounded-[2rem] border border-brand-primary/15 p-8 shadow-elegant md:p-10"
       >
         <div className="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-12">
           <div className="space-y-3">
@@ -126,6 +126,9 @@ export default function ProcessSteps() {
             <h4 className="text-2xl font-bold text-brand-secondary">
               {PROCESS_STEPS[active].en}
             </h4>
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              {PROCESS_STEPS[active].desc}
+            </p>
           </div>
           <ul className="space-y-3">
             {PROCESS_STEPS[active].details.map((d) => (
