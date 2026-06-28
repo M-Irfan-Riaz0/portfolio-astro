@@ -27,50 +27,92 @@ import { WHATSAPP_URL } from '../config';
   </div>
 </section>
 
-<footer class="footer-watermark-shell relative mt-12 overflow-hidden bg-[#f4efe6]">
-  <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
-    <span class="footer-watermark footer-watermark-left">اعتماد</span>
-    <span class="footer-watermark footer-watermark-right">پاکستان</span>
-  </div>
-
-  <div class="mx-auto max-w-[72rem] px-6 py-16 md:py-20">
-    <div class="grid gap-10 border-b border-border pb-10 md:grid-cols-[1.2fr_0.8fr] md:items-start">
-      <div class="text-center md:text-left">
+<footer class="footer-watermark-shell relative mt-12 border-t border-border/70">
+  <div class="mx-auto max-w-[72rem] px-6 py-12 md:py-14">
+    <div class="grid gap-6 lg:grid-cols-[1.3fr_0.7fr]">
+      <div class="ui-card rounded-[0.5rem] p-7 md:p-8">
         <p class="section-kicker mb-4 text-xs font-bold uppercase text-brand-primary">Built with care, not templates</p>
         <h2 class="max-w-3xl text-3xl font-bold tracking-tight text-brand-secondary sm:text-[2.6rem]">
-          Websites and SEO systems for Pakistani businesses that want clarity, speed, and trust.
+          A Pakistani web partner for businesses that want clarity, speed, and trust.
         </h2>
-        <p class="text-support mt-4 max-w-xl text-base leading-relaxed">
-          Based in Lahore. Built for startups, local businesses, and growth-focused teams who want a stronger digital presence without agency fluff.
+        <p class="text-support mt-4 max-w-2xl text-base leading-relaxed">
+          Based in Lahore. Built for founders, local businesses, and growth-focused teams who want a stronger digital presence without agency fluff.
         </p>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <span class="soft-chip inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-brand-secondary">
+            <i class="fa-solid fa-location-dot text-brand-primary" aria-hidden="true"></i>
+            Lahore based
+          </span>
+          <span class="soft-chip inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-brand-secondary">
+            <i class="fa-solid fa-sack-dollar text-brand-primary" aria-hidden="true"></i>
+            PKR-first pricing
+          </span>
+          <span class="soft-chip inline-flex items-center gap-2 rounded-full px-3 py-2 text-sm font-semibold text-brand-secondary">
+            <i class="fa-brands fa-whatsapp text-brand-primary" aria-hidden="true"></i>
+            Fast WhatsApp communication
+          </span>
+        </div>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-2">
-        <div>
+      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-1">
+        <div class="ui-card rounded-[0.5rem] p-6">
           <div class="text-sm font-bold uppercase tracking-[0.16em] text-brand-primary">Quick Links</div>
-          <div class="mt-4 flex flex-col gap-3 text-[1rem] font-semibold">
-            <a href="/#solutions" class="text-brand-secondary transition-colors hover:text-accent">Solutions</a>
-            <a href="/#pricing" class="text-brand-secondary transition-colors hover:text-accent">Pricing</a>
-            <a href="/marketplace" class="text-brand-secondary transition-colors hover:text-accent">Marketplace</a>
-            <a href="/blog" class="text-brand-secondary transition-colors hover:text-accent">Blog</a>
+          <div class="mt-5 flex flex-col gap-3 text-[1rem] font-semibold">
+            <a href="/#solutions" class="inline-flex items-center justify-between gap-3 text-brand-secondary transition-colors hover:text-accent">
+              <span>Solutions</span>
+              <i class="fa-solid fa-arrow-right text-xs text-brand-primary" aria-hidden="true"></i>
+            </a>
+            <a href="/#pricing" class="inline-flex items-center justify-between gap-3 text-brand-secondary transition-colors hover:text-accent">
+              <span>Pricing</span>
+              <i class="fa-solid fa-arrow-right text-xs text-brand-primary" aria-hidden="true"></i>
+            </a>
+            <a href="/marketplace" class="inline-flex items-center justify-between gap-3 text-brand-secondary transition-colors hover:text-accent">
+              <span>Marketplace</span>
+              <i class="fa-solid fa-arrow-right text-xs text-brand-primary" aria-hidden="true"></i>
+            </a>
+            <a href="/blog" class="inline-flex items-center justify-between gap-3 text-brand-secondary transition-colors hover:text-accent">
+              <span>Blog</span>
+              <i class="fa-solid fa-arrow-right text-xs text-brand-primary" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
 
-        <div>
+        <div class="ui-card rounded-[0.5rem] p-6">
           <div class="text-sm font-bold uppercase tracking-[0.16em] text-brand-primary">Connect</div>
-          <div class="mt-4 flex flex-col gap-3 text-[1rem] font-semibold">
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2.5 text-brand-secondary transition-colors hover:text-accent"><i class="fa-brands fa-whatsapp w-4 text-center text-brand-primary" aria-hidden="true"></i>WhatsApp</a>
-            <a href="#" class="inline-flex items-center gap-2.5 text-brand-secondary transition-colors hover:text-accent"><i class="fa-brands fa-linkedin-in w-4 text-center text-brand-primary" aria-hidden="true"></i>LinkedIn</a>
-            <a href="#" class="inline-flex items-center gap-2.5 text-brand-secondary transition-colors hover:text-accent"><i class="fa-brands fa-behance w-4 text-center text-brand-primary" aria-hidden="true"></i>Behance</a>
-            <a href="#" class="inline-flex items-center gap-2.5 text-brand-secondary transition-colors hover:text-accent"><i class="fa-brands fa-x-twitter w-4 text-center text-brand-primary" aria-hidden="true"></i>Twitter</a>
+          <div class="mt-5 flex flex-col gap-3 text-[1rem] font-semibold">
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="inline-flex items-center gap-3 text-brand-secondary transition-colors hover:text-accent">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-whatsapp/12 text-whatsapp">
+                <i class="fa-brands fa-whatsapp" aria-hidden="true"></i>
+              </span>
+              <span>WhatsApp</span>
+            </a>
+            <a href="#" class="inline-flex items-center gap-3 text-brand-secondary transition-colors hover:text-accent">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-brand-primary/8 text-brand-primary">
+                <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+              </span>
+              <span>LinkedIn</span>
+            </a>
+            <a href="#" class="inline-flex items-center gap-3 text-brand-secondary transition-colors hover:text-accent">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-brand-primary/8 text-brand-primary">
+                <i class="fa-brands fa-behance" aria-hidden="true"></i>
+              </span>
+              <span>Behance</span>
+            </a>
+            <a href="#" class="inline-flex items-center gap-3 text-brand-secondary transition-colors hover:text-accent">
+              <span class="grid h-9 w-9 place-items-center rounded-full bg-brand-primary/8 text-brand-primary">
+                <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+              </span>
+              <span>Twitter</span>
+            </a>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="text-soft-strong flex flex-col gap-4 pt-6 text-[0.98rem] md:flex-row md:items-center md:justify-between">
-      <p>Based in Lahore. Designed for real businesses, not mockups.</p>
-      <p>Clear scope. PKR pricing. Fast WhatsApp communication.</p>
+    <div class="mt-6 flex flex-col gap-3 border-t border-border/80 pt-5 text-[0.98rem] text-soft-strong md:flex-row md:items-center md:justify-between">
+      <p>Designed for real businesses, not mockups.</p>
+      <p>Clear scope. Straight pricing. Fast execution.</p>
     </div>
   </div>
 </footer>

@@ -322,8 +322,8 @@
 
   .footer-watermark-shell {
     background-image:
-      radial-gradient(circle at top left, color-mix(in oklab, var(--accent) 10%, transparent), transparent 34%),
-      linear-gradient(180deg, color-mix(in oklab, white 65%, var(--background)), var(--card));
+      radial-gradient(circle at top left, color-mix(in oklab, var(--accent) 8%, transparent), transparent 24%),
+      linear-gradient(180deg, color-mix(in oklab, white 80%, var(--background)), color-mix(in oklab, #f7f3ea 65%, white));
   }
 
   .footer-watermark {
