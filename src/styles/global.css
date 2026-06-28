@@ -43,7 +43,7 @@
 }
 
 :root {
-  --radius: 0.75rem;
+  --radius: 0.55rem;
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.24 0.045 165);
@@ -73,12 +73,14 @@
 
   html {
     scroll-behavior: smooth;
+    font-size: clamp(17px, 0.3vw + 16px, 18.5px);
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
     font-family: var(--font-sans);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 }
@@ -129,6 +131,7 @@
 
   .text-support {
     color: color-mix(in oklab, var(--brand-secondary) 82%, white);
+    line-height: 1.7;
   }
 
   .text-soft-strong {
@@ -259,8 +262,8 @@
   .article-prose ol,
   .article-prose blockquote {
     margin-top: 1rem;
-    font-size: 1.02rem;
-    line-height: 1.9;
+    font-size: 1.08rem;
+    line-height: 1.95;
   }
 
   .article-prose ul,

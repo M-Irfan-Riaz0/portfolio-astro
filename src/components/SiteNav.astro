@@ -19,19 +19,19 @@ const getLinkHref = (link: { anchor?: string; href?: string }) =>
 ---
 
 <nav class="sticky top-0 z-50 px-4 pt-4">
-  <div class="glass-nav mx-auto flex max-w-7xl items-center justify-between rounded-[1.75rem] px-5 py-4 sm:px-6">
+  <div class="glass-nav mx-auto flex max-w-[92rem] items-center justify-between rounded-[1.1rem] px-5 py-4 sm:px-6">
     <a href="/" class="flex items-center gap-3 text-brand-primary">
-      <span class="grid h-11 w-11 place-items-center rounded-2xl bg-brand-primary text-lg font-bold text-white shadow-lg shadow-brand-primary/15">
+        <span class="grid h-11 w-11 place-items-center rounded-xl bg-brand-primary text-lg font-bold text-white shadow-lg shadow-brand-primary/15">
         I
       </span>
       <span>
-        <span class="block text-base font-bold tracking-tight text-brand-secondary">Irfan</span>
+        <span class="block text-[1.05rem] font-bold tracking-tight text-brand-secondary">Irfan</span>
         <span class="block text-[10px] font-semibold uppercase tracking-[0.24em] text-brand-primary/70">Web Systems</span>
       </span>
     </a>
 
     <!-- Desktop links -->
-    <div class="hidden items-center gap-6 text-[0.95rem] font-medium tracking-tight text-brand-primary/80 md:flex">
+    <div class="hidden items-center gap-6 text-[1rem] font-medium tracking-tight text-brand-primary/80 md:flex">
       {NAV_LINKS.map((link) => (
         <a href={getLinkHref(link)} class="transition-colors hover:text-accent">{link.label}</a>
       ))}
@@ -43,7 +43,7 @@ const getLinkHref = (link: { anchor?: string; href?: string }) =>
         href={WHATSAPP_URL}
         target="_blank"
         rel="noreferrer"
-        class="rounded-full bg-brand-primary px-5 py-2.5 text-xs font-semibold text-white shadow-lg shadow-brand-primary/20 transition-all hover:-translate-y-0.5 hover:bg-brand-secondary sm:px-6 sm:py-3 sm:text-sm"
+        class="rounded-full bg-brand-primary px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-brand-primary/20 transition-all hover:-translate-y-0.5 hover:bg-brand-secondary sm:px-6 sm:py-3"
       >
         WhatsApp Inquiry
       </a>
@@ -73,13 +73,13 @@ const getLinkHref = (link: { anchor?: string; href?: string }) =>
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="glass-nav mx-auto mt-3 hidden max-w-7xl rounded-[1.5rem] md:hidden"
+    class="glass-nav mx-auto mt-3 hidden max-w-[92rem] rounded-[1rem] md:hidden"
   >
     <div class="flex flex-col gap-1 px-4 py-4">
       {NAV_LINKS.map((link) => (
         <a
           href={getLinkHref(link)}
-          class="rounded-xl px-3 py-3 text-base font-medium tracking-tight transition-colors hover:bg-brand-primary/5 hover:text-accent"
+          class="rounded-lg px-3 py-3 text-[1.05rem] font-medium tracking-tight transition-colors hover:bg-brand-primary/5 hover:text-accent"
         >
           {link.label}
         </a>
