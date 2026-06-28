@@ -18,8 +18,8 @@ const getLinkHref = (link: { anchor?: string; href?: string }) =>
   link.href ?? a(link.anchor!);
 ---
 
-<nav class="sticky top-0 z-[70] px-3 pt-0 sm:px-4 sm:pt-4">
-  <div class="glass-nav mx-auto flex max-w-[72rem] items-center justify-between rounded-[0.6rem] px-4 py-3 sm:px-6 sm:py-4">
+<nav class="sticky top-0 z-[70] px-0 pt-0 sm:px-4 sm:pt-4">
+  <div class="glass-nav mx-auto flex max-w-none items-center justify-between rounded-none px-3 py-3 sm:max-w-[72rem] sm:rounded-[0.6rem] sm:px-6 sm:py-4">
     <a href="/" class="flex items-center gap-3 text-brand-primary">
         <span class="grid h-11 w-11 place-items-center rounded-xl bg-brand-primary text-lg font-bold text-white shadow-lg shadow-brand-primary/15">
         I
@@ -73,9 +73,9 @@ const getLinkHref = (link: { anchor?: string; href?: string }) =>
   <!-- Mobile menu -->
   <div
     id="mobile-menu"
-    class="glass-nav relative z-[80] mx-auto mt-2 hidden max-w-[72rem] rounded-[0.5rem] md:hidden"
+    class="glass-nav relative z-[80] mx-auto mt-2 hidden max-w-none rounded-none md:hidden sm:max-w-[72rem] sm:rounded-[0.5rem]"
   >
-    <div class="flex flex-col gap-1 px-3 py-3">
+    <div class="flex flex-col gap-1 px-3 py-3 sm:px-4">
       {NAV_LINKS.map((link) => (
         <a
           href={getLinkHref(link)}

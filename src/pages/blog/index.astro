@@ -17,8 +17,8 @@ const posts = await getCollection('blog');
   <div class="min-h-screen bg-background font-sans text-brand-secondary">
     <SiteNav />
 
-    <header class="px-4 pt-4 sm:px-6 sm:pt-6">
-      <div class="page-hero-shell mx-auto max-w-[72rem] rounded-[0.6rem] px-4 py-10 sm:px-8 sm:py-16">
+    <header class="px-0 pt-4 sm:px-6 sm:pt-6">
+      <div class="page-hero-shell mx-auto max-w-none rounded-none px-3 py-10 sm:max-w-[72rem] sm:rounded-[0.6rem] sm:px-8 sm:py-16">
         <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
           <span class="page-watermark page-watermark-top">خیالات</span>
           <span class="page-watermark page-watermark-bottom">تحریر</span>
@@ -35,7 +35,7 @@ const posts = await getCollection('blog');
       </div>
     </header>
 
-    <main class="mx-auto max-w-[72rem] px-4 py-14 sm:px-6 sm:py-16">
+    <main class="mx-auto max-w-[72rem] px-3 py-14 sm:px-6 sm:py-16">
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
           <article class="ui-card group rounded-[0.5rem] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant">

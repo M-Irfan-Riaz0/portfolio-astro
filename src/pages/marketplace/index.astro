@@ -42,8 +42,8 @@ function whatsappBuyUrl(name: string) {
     <SiteNav />
 
     <!-- Header -->
-    <header class="px-4 pt-4 sm:px-6 sm:pt-6">
-      <div class="page-hero-shell mx-auto max-w-[72rem] rounded-[0.6rem] px-4 py-8 sm:px-8 sm:py-14">
+    <header class="px-0 pt-4 sm:px-6 sm:pt-6">
+      <div class="page-hero-shell mx-auto max-w-none rounded-none px-3 py-8 sm:max-w-[72rem] sm:rounded-[0.6rem] sm:px-8 sm:py-14">
         <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
           <span class="page-watermark page-watermark-top">بازار</span>
           <span class="page-watermark page-watermark-bottom">وسائل</span>
@@ -76,9 +76,9 @@ function whatsappBuyUrl(name: string) {
     </header>
 
     <!-- Filter tabs -->
-    <div class="sticky top-[78px] z-40 px-4 py-3 sm:px-6 sm:py-4">
-      <div class="glass-nav mx-auto max-w-[72rem] rounded-[0.5rem]">
-      <div class="mx-auto max-w-[72rem] overflow-x-auto px-4 sm:px-6">
+    <div class="sticky top-[78px] z-40 px-0 py-3 sm:px-6 sm:py-4">
+      <div class="glass-nav mx-auto max-w-none rounded-none sm:max-w-[72rem] sm:rounded-[0.5rem]">
+      <div class="mx-auto max-w-[72rem] overflow-x-auto px-3 sm:px-6">
         <div class="flex gap-1 py-3" id="filter-tabs" role="tablist">
           {['All', 'Free', 'Template', 'Checklist', 'Guide', 'UI Kit', 'Spreadsheet'].map((tab, i) => (
             <button
@@ -101,7 +101,7 @@ function whatsappBuyUrl(name: string) {
     </div>
 
     <!-- Product grid -->
-    <main class="mx-auto max-w-[72rem] px-4 py-14 sm:px-6 sm:py-16">
+    <main class="mx-auto max-w-[72rem] px-3 py-14 sm:px-6 sm:py-16">
       <div id="product-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {sorted.map((product) => {
           const { name, tagline, category, price, featured, downloadUrl } = product.data;
