@@ -371,19 +371,21 @@ function formatMarketplacePrice(item: typeof marketplaceItems[number]) {
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           {RECENT_PROJECTS.map((project) => (
-            <article class="ui-card rounded-[0.5rem] p-6">
+            <article class="ui-card overflow-hidden rounded-[0.5rem] sm:p-6">
               <div class="media-panel mb-5 min-h-[12rem]">
                 <img src={project.image} alt={`${project.name} project preview`} />
                 <div class="media-overlay">
                   <span class="media-label">{project.category}</span>
                 </div>
               </div>
+              <div class="px-5 sm:px-0">
               <div class="mb-4 flex items-center justify-between gap-3">
                 <span class="text-sm font-bold text-brand-primary">{project.outcome}</span>
               </div>
               <h3 class="text-xl font-bold leading-tight tracking-tight text-brand-secondary">{project.name}</h3>
               <p class="text-support mt-3 text-sm leading-relaxed">{project.summary}</p>
               <p class="mt-5 border-t border-border pt-4 text-sm leading-relaxed text-soft-strong">{project.detail}</p>
+              </div>
             </article>
           ))}
         </div>
@@ -479,7 +481,7 @@ function formatMarketplacePrice(item: typeof marketplaceItems[number]) {
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           {featuredMarketplaceItems.map((item, index) => (
-            <article class="ui-card rounded-[0.5rem] p-6">
+            <article class="ui-card overflow-hidden rounded-[0.5rem] sm:p-6">
               <div class="media-panel mb-5 min-h-[12rem]">
                 <img
                   src={index % 2 === 0 ? heroImage.src : blogImage.src}
@@ -489,6 +491,7 @@ function formatMarketplacePrice(item: typeof marketplaceItems[number]) {
                   <span class="media-label">{item.data.category}</span>
                 </div>
               </div>
+              <div class="px-5 sm:px-0">
               <div class="mb-4 flex items-center justify-between gap-3">
                 <span class={`text-sm font-bold ${item.data.price.free ? 'text-whatsapp' : 'text-brand-primary'}`}>
                   {formatMarketplacePrice(item)}
@@ -511,6 +514,7 @@ function formatMarketplacePrice(item: typeof marketplaceItems[number]) {
                   View in marketplace
                   <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
                 </a>
+              </div>
               </div>
             </article>
           ))}

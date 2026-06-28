@@ -48,7 +48,7 @@ const posts = await getCollection('blog');
               <span>{post.data.date}</span>
               </div>
             </div>
-            <div class="media-panel mx-5 mb-5 min-h-[13rem] sm:mx-6">
+            <div class="media-panel mb-5 min-h-[13rem] sm:mx-6">
               <img src={blogImage.src} alt={`${post.data.title} article thumbnail`} />
               <div class="media-overlay">
                 <span class="media-label">{post.data.category}</span>
