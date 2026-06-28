@@ -42,8 +42,8 @@ const ogImage = post.data.ogImage ?? blogImage.src;
     <SiteNav />
 
     <!-- Hero -->
-    <header class="px-6 pt-6">
-      <div class="page-hero-shell mx-auto max-w-5xl rounded-[0.6rem] px-6 py-14 sm:px-8 sm:py-16">
+    <header class="px-3 pt-4 sm:px-6 sm:pt-6">
+      <div class="page-hero-shell mx-auto max-w-5xl rounded-[0.6rem] px-3 py-9 sm:px-8 sm:py-16">
         <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
           <span class="page-watermark page-watermark-top">مضمون</span>
           <span class="page-watermark page-watermark-bottom">گہرائی</span>
@@ -82,8 +82,8 @@ const ogImage = post.data.ogImage ?? blogImage.src;
     </header>
 
     <!-- Cover image -->
-    <div class="mx-auto max-w-5xl px-6 pt-10">
-      <div class="ui-card overflow-hidden rounded-[0.6rem] p-3">
+    <div class="mx-auto max-w-5xl px-3 pt-7 sm:px-6 sm:pt-10">
+      <div class="ui-card overflow-hidden rounded-[0.6rem] p-2 sm:p-3">
         <img
           src={blogImage.src}
           alt={`${post.data.title} ${post.data.titleAccent} cover image`}
@@ -95,14 +95,14 @@ const ogImage = post.data.ogImage ?? blogImage.src;
     </div>
 
     <!-- Article body — rendered from MDX -->
-    <article class="mx-auto max-w-4xl px-6 py-16">
-      <div class="ui-card rounded-[0.6rem] px-6 py-8 sm:px-10 sm:py-10">
+    <article class="mx-auto max-w-4xl px-3 py-12 sm:px-6 sm:py-16">
+      <div class="ui-card rounded-[0.6rem] px-3 py-6 sm:px-10 sm:py-10">
         <div class="article-prose">
           <Content />
         </div>
 
       <!-- End CTA -->
-      <div class="ui-card-strong !mt-16 rounded-[0.6rem] p-8 text-white md:p-10">
+      <div class="ui-card-strong !mt-16 rounded-[0.6rem] p-5 text-white sm:p-8 md:p-10">
         <h2 class="text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
           Apne business ke liye yeh{" "}
           <span class="text-accent">playbook</span> implement karwana hai?
@@ -140,7 +140,7 @@ const ogImage = post.data.ogImage ?? blogImage.src;
     <!-- Related posts -->
     {relatedPosts.length > 0 && (
       <section class="bg-muted/25 py-4">
-        <div class="mx-auto max-w-5xl px-6 py-16">
+        <div class="mx-auto max-w-5xl px-3 py-12 sm:px-6 sm:py-16">
           <div class="mb-8 flex items-end justify-between gap-4">
             <div>
               <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Keep reading</span>
