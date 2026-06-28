@@ -85,6 +85,12 @@
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
+
+  /* Ensure dark class on html forces the background when utilities conflict */
+  html.dark body {
+    background-color: var(--background) !important;
+    color: var(--foreground) !important;
+  }
 }
 
 @layer components {
