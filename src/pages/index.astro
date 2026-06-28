@@ -15,27 +15,30 @@ const featuredMarketplaceItems = [...marketplaceItems]
   .sort((a, b) => Number(b.data.featured) - Number(a.data.featured))
   .slice(0, 3);
 
-const RESULTS = [
+const CASE_STUDIES = [
   {
     client: "Raza Textiles",
     city: "Faisalabad",
-    metric: "+312%",
-    label: "Organic traffic in 6 months",
-    tag: "E-commerce SEO",
+    category: "E-commerce SEO",
+    result: "+312% organic traffic",
+    challenge: "Needed a storefront that felt more credible and was easier to browse on mobile.",
+    approach: "Reworked category structure, simplified product discovery, and improved load speed across key pages.",
   },
   {
     client: "Lahore Estates",
     city: "Lahore",
-    metric: "#1",
-    label: "Ranking for 24 local keywords",
-    tag: "Local SEO + Web",
+    category: "Local SEO + Web",
+    result: "#1 for 24 local keywords",
+    challenge: "The business needed better local visibility and clearer lead-generation pages for property buyers.",
+    approach: "Built targeted service pages, improved internal linking, and tightened the inquiry flow for faster conversions.",
   },
   {
     client: "Bloom Studio",
     city: "Karachi",
-    metric: "4.2s → 0.9s",
-    label: "Page load on 4G networks",
-    tag: "Performance",
+    category: "Performance Refresh",
+    result: "4.2s to 0.9s on 4G",
+    challenge: "The site looked good visually but felt slow and fragile on typical mobile connections.",
+    approach: "Reduced unnecessary weight, improved asset delivery, and made the reading experience cleaner on small screens.",
   },
 ];
 
@@ -304,29 +307,48 @@ function formatMarketplacePrice(item: typeof marketplaceItems[number]) {
       </div>
     </section>
 
-    <!-- Results -->
+    <!-- Case Studies -->
     <section id="results" class="bg-white py-20">
       <div class="mx-auto max-w-[72rem] px-3 sm:px-6">
         <div class="mb-12 text-center">
-          <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Our Results</span>
+          <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Case Studies</span>
           <h2 class="mt-2 text-3xl font-bold text-brand-secondary sm:text-4xl">
-            Real businesses. Real <span class="text-brand-primary">growth</span>.
+            Real businesses. Clear problems. <span class="text-brand-primary">Measured outcomes</span>.
           </h2>
+          <p class="text-support mx-auto mt-3 max-w-2xl text-base leading-relaxed">
+            A few examples of how the work translates into better speed, stronger trust, and more useful business results.
+          </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
-          {RESULTS.map((c) => (
-            <div class="ui-card rounded-[0.5rem] p-8">
-              <div class="mb-6 flex items-center justify-between gap-3">
-                <div class="text-xs font-bold uppercase tracking-widest text-muted-foreground">{c.tag}</div>
-                <span class="soft-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary"><i class="fa-solid fa-circle-check" aria-hidden="true"></i>Verified</span>
+          {CASE_STUDIES.map((study) => (
+            <article class="ui-card rounded-[0.5rem] p-6">
+              <div class="mb-5 flex items-start justify-between gap-3">
+                <div>
+                  <div class="text-xs font-bold uppercase tracking-widest text-muted-foreground">{study.category}</div>
+                  <h3 class="mt-2 text-xl font-bold leading-tight tracking-tight text-brand-secondary">{study.client}</h3>
+                  <div class="mt-1 text-xs uppercase tracking-[0.14em] text-soft-strong">{study.city}</div>
+                </div>
+                <span class="soft-chip inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-primary">
+                  <i class="fa-solid fa-arrow-trend-up" aria-hidden="true"></i>
+                  Outcome
+                </span>
               </div>
-              <div class="mb-2 text-[2.75rem] font-bold tracking-tight text-brand-primary">{c.metric}</div>
-              <p class="text-support mb-6 text-sm">{c.label}</p>
-              <div class="border-t border-border pt-4">
-                <div class="font-semibold text-brand-secondary">{c.client}</div>
-                <div class="text-xs uppercase tracking-wider text-muted-foreground">{c.city}</div>
+
+              <div class="mb-5 text-2xl font-bold tracking-tight text-brand-primary">
+                {study.result}
               </div>
-            </div>
+
+              <div class="space-y-4 border-t border-border pt-4">
+                <div>
+                  <div class="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-brand-primary">Challenge</div>
+                  <p class="text-support mt-1.5 text-sm leading-relaxed">{study.challenge}</p>
+                </div>
+                <div>
+                  <div class="text-[0.72rem] font-bold uppercase tracking-[0.14em] text-brand-primary">What changed</div>
+                  <p class="text-soft-strong mt-1.5 text-sm leading-relaxed">{study.approach}</p>
+                </div>
+              </div>
+            </article>
           ))}
         </div>
       </div>
