@@ -88,6 +88,7 @@ const RECENT_PROJECTS = [
   {
     name: "Raza Textiles Storefront",
     category: "E-commerce Build",
+    image: heroImage.src,
     summary: "A faster storefront for a Faisalabad textile seller, focused on mobile shopping and clearer product navigation.",
     outcome: "+312% organic growth",
     detail: "Improved category structure, speed, and product page clarity for lower-friction buying.",
@@ -95,6 +96,7 @@ const RECENT_PROJECTS = [
   {
     name: "Lahore Estates Lead Site",
     category: "Local SEO + Web",
+    image: blogImage.src,
     summary: "A lead-generation site for a real estate business that needed stronger local search visibility and trust.",
     outcome: "#1 for 24 local keywords",
     detail: "Rebuilt the service pages, localized landing pages, and simplified conversion paths.",
@@ -102,6 +104,7 @@ const RECENT_PROJECTS = [
   {
     name: "Bloom Studio Refresh",
     category: "Performance Upgrade",
+    image: heroImage.src,
     summary: "A Karachi creative business site redesigned to load fast on 4G and feel more premium on first visit.",
     outcome: "0.9s load on 4G",
     detail: "Reduced visual clutter, improved asset loading, and strengthened mobile readability.",
@@ -369,10 +372,13 @@ function formatMarketplacePrice(item: typeof marketplaceItems[number]) {
         <div class="grid gap-6 md:grid-cols-3">
           {RECENT_PROJECTS.map((project) => (
             <article class="ui-card rounded-[0.5rem] p-6">
+              <div class="media-panel mb-5 min-h-[12rem]">
+                <img src={project.image} alt={`${project.name} project preview`} />
+                <div class="media-overlay">
+                  <span class="media-label">{project.category}</span>
+                </div>
+              </div>
               <div class="mb-4 flex items-center justify-between gap-3">
-                <span class="soft-chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-primary">
-                  {project.category}
-                </span>
                 <span class="text-sm font-bold text-brand-primary">{project.outcome}</span>
               </div>
               <h3 class="text-xl font-bold leading-tight tracking-tight text-brand-secondary">{project.name}</h3>
@@ -472,12 +478,18 @@ function formatMarketplacePrice(item: typeof marketplaceItems[number]) {
           </a>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
-          {featuredMarketplaceItems.map((item) => (
+          {featuredMarketplaceItems.map((item, index) => (
             <article class="ui-card rounded-[0.5rem] p-6">
+              <div class="media-panel mb-5 min-h-[12rem]">
+                <img
+                  src={index % 2 === 0 ? heroImage.src : blogImage.src}
+                  alt={`${item.data.name} marketplace preview`}
+                />
+                <div class="media-overlay">
+                  <span class="media-label">{item.data.category}</span>
+                </div>
+              </div>
               <div class="mb-4 flex items-center justify-between gap-3">
-                <span class="soft-chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-primary">
-                  {item.data.category}
-                </span>
                 <span class={`text-sm font-bold ${item.data.price.free ? 'text-whatsapp' : 'text-brand-primary'}`}>
                   {formatMarketplacePrice(item)}
                 </span>
