@@ -47,7 +47,7 @@
   --radius: 0.42rem;
 
   /* Dark theme defaults */
-  --background: #050506; /* near-black */
+  --background: #060709; /* deep dark base */
   --foreground: #e6e6e6; /* light text */
 
   --card: #0b0b0d;
@@ -79,17 +79,15 @@
   }
 
   body {
-    background-color: var(--color-background);
+    background-color: #000000;
     color: var(--color-foreground);
     font-family: var(--font-sans);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
-  /* Ensure dark class on html forces the background when utilities conflict */
-  html.dark body {
-    background-color: var(--background) !important;
-    color: var(--foreground) !important;
+  h1, h2, h3, h4, h5, h6 {
+    color: #ffffff;
   }
 }
 
