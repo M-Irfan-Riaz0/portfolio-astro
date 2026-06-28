@@ -68,7 +68,7 @@ export default function ProcessSteps() {
               onFocus={() => setActive(i)}
               onClick={() => setActive(i)}
               aria-pressed={isActive}
-              className={`group relative cursor-pointer rounded-[1.5rem] border p-6 text-left transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary ${
+              className={`group relative cursor-pointer rounded-[0.5rem] border p-6 text-left transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary ${
                 isActive
                   ? "ui-card border-brand-primary/40"
                   : "ui-card border-border"
@@ -98,7 +98,7 @@ export default function ProcessSteps() {
       {/* Detail panel */}
       <div
         key={active}
-        className="ui-card rounded-[1.75rem] border border-brand-primary/15 p-8 md:p-10"
+        className="ui-card rounded-[0.6rem] border border-brand-primary/15 p-8 md:p-10"
       >
         <div className="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-12">
           <div className="space-y-3">
@@ -118,8 +118,8 @@ export default function ProcessSteps() {
                 key={d}
                 className="flex items-start gap-3 text-base leading-relaxed text-brand-secondary"
               >
-                <span className="mt-1 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-accent/20 text-xs font-bold text-brand-primary">
-                  ✓
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-brand-primary/10 text-[10px] text-brand-primary">
+                  <i className="fa-solid fa-check" aria-hidden="true"></i>
                 </span>
                 {d}
               </li>

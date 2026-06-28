@@ -43,7 +43,7 @@ const ogImage = post.data.ogImage ?? blogImage.src;
 
     <!-- Hero -->
     <header class="px-6 pt-6">
-      <div class="page-hero-shell mx-auto max-w-5xl rounded-[2.5rem] px-6 py-14 sm:px-8 sm:py-16">
+      <div class="page-hero-shell mx-auto max-w-5xl rounded-[0.6rem] px-6 py-14 sm:px-8 sm:py-16">
         <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
           <span class="page-watermark page-watermark-top">مضمون</span>
           <span class="page-watermark page-watermark-bottom">گہرائی</span>
@@ -83,26 +83,26 @@ const ogImage = post.data.ogImage ?? blogImage.src;
 
     <!-- Cover image -->
     <div class="mx-auto max-w-5xl px-6 pt-10">
-      <div class="ui-card overflow-hidden rounded-[2rem] p-3">
+      <div class="ui-card overflow-hidden rounded-[0.6rem] p-3">
         <img
           src={blogImage.src}
           alt={`${post.data.title} ${post.data.titleAccent} cover image`}
           width={1280}
           height={900}
-          class="aspect-[16/9] w-full rounded-[1.5rem] object-cover"
+          class="aspect-[16/9] w-full rounded-[0.5rem] object-cover"
         />
       </div>
     </div>
 
     <!-- Article body — rendered from MDX -->
     <article class="mx-auto max-w-4xl px-6 py-16">
-      <div class="ui-card rounded-[2.25rem] px-6 py-8 sm:px-10 sm:py-10">
+      <div class="ui-card rounded-[0.6rem] px-6 py-8 sm:px-10 sm:py-10">
         <div class="article-prose">
           <Content />
         </div>
 
       <!-- End CTA -->
-      <div class="ui-card-strong !mt-16 rounded-[2rem] p-8 text-white md:p-10">
+      <div class="ui-card-strong !mt-16 rounded-[0.6rem] p-8 text-white md:p-10">
         <h2 class="text-2xl font-bold leading-tight tracking-tight sm:text-3xl">
           Apne business ke liye yeh{" "}
           <span class="text-accent">playbook</span> implement karwana hai?
@@ -115,12 +115,12 @@ const ogImage = post.data.ogImage ?? blogImage.src;
             href={WHATSAPP_URL}
             target="_blank"
             rel="noreferrer"
-            class="inline-flex items-center gap-2 rounded-xl bg-whatsapp px-5 py-3 text-sm font-bold text-white transition-all hover:brightness-110"
+            class="inline-flex items-center gap-2 rounded-lg bg-whatsapp px-5 py-3 text-sm font-bold text-white transition-all hover:brightness-110"
           >
-            WhatsApp Karein →
+            <i class="fa-brands fa-whatsapp text-base" aria-hidden="true"></i>WhatsApp Karein
           </a>
-          <a href="/#pricing" class="text-sm font-semibold text-white/70 transition-colors hover:text-white">
-            View pricing →
+          <a href="/#pricing" class="inline-flex items-center gap-2 text-sm font-semibold text-white/70 transition-colors hover:text-white">
+            View pricing <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
           </a>
         </div>
       </div>
@@ -131,7 +131,7 @@ const ogImage = post.data.ogImage ?? blogImage.src;
           href="/blog"
           class="inline-flex items-center gap-2 text-sm font-bold text-brand-primary transition-colors hover:text-accent"
         >
-          ← Back to all posts
+          <i class="fa-solid fa-arrow-left text-xs" aria-hidden="true"></i> Back to all posts
         </a>
       </div>
       </div>
@@ -157,7 +157,7 @@ const ogImage = post.data.ogImage ?? blogImage.src;
             {relatedPosts.map((rel) => (
               <a
                 href={`/blog/${rel.id}`}
-                class="ui-card group flex flex-col rounded-[1.85rem] p-6 transition-all hover:-translate-y-1 hover:shadow-elegant"
+                class="ui-card group flex flex-col rounded-[0.5rem] p-6 transition-all hover:-translate-y-1 hover:shadow-elegant"
               >
                 <div class="mb-3 flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
                   <span class="soft-chip rounded-full px-2.5 py-1 text-brand-primary">{rel.data.category}</span>
