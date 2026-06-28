@@ -52,7 +52,7 @@
   --card-foreground: oklch(0.24 0.045 165);
 
   --muted: oklch(0.965 0.006 85);
-  --muted-foreground: oklch(0.52 0.018 165);
+  --muted-foreground: oklch(0.4 0.02 165);
 
   --border: oklch(0.9 0.012 85);
   --input: oklch(0.9 0.012 85);
@@ -125,6 +125,14 @@
     border: 1px solid color-mix(in oklab, var(--brand-primary) 8%, var(--border));
     background: color-mix(in oklab, white 76%, var(--muted));
     box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.88);
+  }
+
+  .text-support {
+    color: color-mix(in oklab, var(--brand-secondary) 82%, white);
+  }
+
+  .text-soft-strong {
+    color: color-mix(in oklab, var(--brand-secondary) 68%, white);
   }
 
   .human-note {
