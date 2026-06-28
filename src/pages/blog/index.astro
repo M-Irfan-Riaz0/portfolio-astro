@@ -38,33 +38,36 @@ const posts = await getCollection('blog');
     <main class="mx-auto max-w-[72rem] px-3 py-14 sm:px-6 sm:py-16">
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <article class="ui-card group rounded-[0.5rem] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant">
-            <div class="mb-4 flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
+          <article class="ui-card group overflow-hidden rounded-[0.5rem] transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant">
+            <div class="p-5 pb-0 sm:p-6 sm:pb-0">
+              <div class="mb-4 flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
               <span class="soft-chip rounded-full px-3 py-1 text-brand-primary">{post.data.category}</span>
               <span>•</span>
               <span>{post.data.readMinutes} min read</span>
               <span>•</span>
               <span>{post.data.date}</span>
+              </div>
             </div>
-            <div class="media-panel mb-5 min-h-[13rem]">
+            <div class="media-panel mx-5 mb-5 min-h-[13rem] sm:mx-6">
               <img src={blogImage.src} alt={`${post.data.title} article thumbnail`} />
               <div class="media-overlay">
                 <span class="media-label">{post.data.category}</span>
-                <p class="mt-3 max-w-[15rem] text-sm leading-relaxed text-white/85">{post.data.excerpt}</p>
               </div>
             </div>
-            <h2 class="mb-3 text-xl font-bold leading-tight tracking-tight text-brand-secondary">
-              {post.data.title}{' '}
-              <span class="text-brand-primary">{post.data.titleAccent}</span>{' '}
-              {post.data.titleTail}
-            </h2>
-            <p class="mb-6 text-sm leading-relaxed text-muted-foreground">{post.data.excerpt}</p>
-            <a
-              href={`/blog/${post.id}`}
-              class="inline-flex items-center gap-2 text-sm font-bold text-brand-primary transition-all group-hover:gap-3 hover:text-accent"
-            >
-              Read article <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
-            </a>
+            <div class="p-5 pt-0 sm:p-6 sm:pt-0">
+              <h2 class="mb-3 text-xl font-bold leading-tight tracking-tight text-brand-secondary">
+                {post.data.title}{' '}
+                <span class="text-brand-primary">{post.data.titleAccent}</span>{' '}
+                {post.data.titleTail}
+              </h2>
+              <p class="mb-6 text-sm leading-relaxed text-muted-foreground">{post.data.excerpt}</p>
+              <a
+                href={`/blog/${post.id}`}
+                class="inline-flex items-center gap-2 text-sm font-bold text-brand-primary transition-all group-hover:gap-3 hover:text-accent"
+              >
+                Read article <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+              </a>
+            </div>
           </article>
         ))}
       </div>
