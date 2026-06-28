@@ -3,7 +3,7 @@ import { WHATSAPP_URL } from '../config';
 ---
 
 <section class="px-6 pb-0 pt-20">
-  <div class="ui-card mx-auto max-w-[72rem] rounded-[0.75rem] p-7 md:p-8">
+  <div class="ui-card mx-auto max-w-[72rem] rounded-[0.5rem] p-7 md:p-8">
     <div class="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
       <div class="max-w-2xl text-center md:text-left">
         <p class="section-kicker mb-3 text-xs font-bold uppercase text-brand-primary">Pre-Footer CTA</p>
@@ -21,7 +21,7 @@ import { WHATSAPP_URL } from '../config';
         class="inline-flex shrink-0 items-center justify-center gap-3 rounded-lg bg-brand-primary px-6 py-3.5 text-[1.05rem] font-bold text-white transition-colors hover:bg-brand-secondary"
       >
         Book Free Consultation
-        <span class="text-accent">→</span>
+        <i class="fa-solid fa-arrow-right text-sm" aria-hidden="true"></i>
       </a>
     </div>
   </div>
@@ -59,10 +59,10 @@ import { WHATSAPP_URL } from '../config';
         <div>
           <div class="text-sm font-bold uppercase tracking-[0.16em] text-brand-primary">Connect</div>
           <div class="mt-4 flex flex-col gap-3 text-[1rem] font-semibold">
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="text-brand-secondary transition-colors hover:text-accent">WhatsApp</a>
-            <a href="#" class="text-brand-secondary transition-colors hover:text-accent">LinkedIn</a>
-            <a href="#" class="text-brand-secondary transition-colors hover:text-accent">Behance</a>
-            <a href="#" class="text-brand-secondary transition-colors hover:text-accent">Twitter</a>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer" class="inline-flex items-center gap-2.5 text-brand-secondary transition-colors hover:text-accent"><i class="fa-brands fa-whatsapp w-4 text-center text-brand-primary" aria-hidden="true"></i>WhatsApp</a>
+            <a href="#" class="inline-flex items-center gap-2.5 text-brand-secondary transition-colors hover:text-accent"><i class="fa-brands fa-linkedin-in w-4 text-center text-brand-primary" aria-hidden="true"></i>LinkedIn</a>
+            <a href="#" class="inline-flex items-center gap-2.5 text-brand-secondary transition-colors hover:text-accent"><i class="fa-brands fa-behance w-4 text-center text-brand-primary" aria-hidden="true"></i>Behance</a>
+            <a href="#" class="inline-flex items-center gap-2.5 text-brand-secondary transition-colors hover:text-accent"><i class="fa-brands fa-x-twitter w-4 text-center text-brand-primary" aria-hidden="true"></i>Twitter</a>
           </div>
         </div>
       </div>
