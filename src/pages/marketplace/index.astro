@@ -23,6 +23,16 @@ const CATEGORY_COLORS: Record<string, string> = {
   Spreadsheet: 'soft-chip text-brand-primary',
 };
 
+const FILTER_TABS = [
+  { label: 'All', icon: 'fa-solid fa-border-all' },
+  { label: 'Free', icon: 'fa-solid fa-gift' },
+  { label: 'Template', icon: 'fa-regular fa-window-maximize' },
+  { label: 'Checklist', icon: 'fa-solid fa-list-check' },
+  { label: 'Guide', icon: 'fa-regular fa-compass' },
+  { label: 'UI Kit', icon: 'fa-solid fa-cubes' },
+  { label: 'Spreadsheet', icon: 'fa-regular fa-table-cells-large' },
+];
+
 function whatsappBuyUrl(name: string) {
   const msg = encodeURIComponent(
     `Assalam-o-Alaikum Irfan, I'd like to purchase "${name}". Please share payment details.`
@@ -50,27 +60,12 @@ function whatsappBuyUrl(name: string) {
         </div>
         <div class="relative z-10 text-center">
           <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Marketplace</span>
-          <h1 class="mx-auto mt-4 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-brand-secondary sm:text-5xl md:text-[4.25rem]">
-            Digital assets built for<br />
-            <span class="font-serif italic text-brand-primary">Pakistani businesses.</span>
+          <h1 class="mx-auto mt-4 max-w-none text-4xl font-bold leading-tight tracking-tight text-brand-secondary sm:max-w-4xl sm:text-5xl md:text-[4.25rem]">
+            Digital assets built for <span class="font-serif italic text-brand-primary sm:block">Pakistani businesses.</span>
           </h1>
           <p class="text-support mx-auto mt-4 max-w-2xl text-lg leading-relaxed">
             SEO checklists, website templates, UI kits, and tracking tools, now presented in the same calmer and more credible system as the homepage.
           </p>
-          <div class="mt-6 grid gap-3 sm:mt-8 sm:grid-cols-3">
-            <div class="ui-card rounded-[0.5rem] p-4 sm:p-5">
-              <div class="text-2xl font-bold text-brand-secondary">{products.length}</div>
-              <div class="text-soft-strong mt-1 text-xs uppercase tracking-[0.16em]">Assets available</div>
-            </div>
-            <div class="ui-card rounded-[0.5rem] p-4 sm:p-5">
-              <div class="text-2xl font-bold text-brand-secondary">{freeCount}</div>
-              <div class="text-soft-strong mt-1 text-xs uppercase tracking-[0.16em]">Completely free</div>
-            </div>
-            <div class="ui-card rounded-[0.5rem] p-4 sm:p-5">
-              <div class="text-2xl font-bold text-brand-secondary">Instant</div>
-              <div class="text-soft-strong mt-1 text-xs uppercase tracking-[0.16em]">Delivery</div>
-            </div>
-          </div>
         </div>
       </div>
     </header>
@@ -79,20 +74,23 @@ function whatsappBuyUrl(name: string) {
     <div class="sticky top-[78px] z-40 px-0 py-3 sm:px-6 sm:py-4">
       <div class="glass-nav mx-auto max-w-none rounded-none sm:max-w-[72rem] sm:rounded-[0.5rem]">
       <div class="mx-auto max-w-[72rem] overflow-x-auto px-3 sm:px-6">
-        <div class="flex gap-1 py-3" id="filter-tabs" role="tablist">
-          {['All', 'Free', 'Template', 'Checklist', 'Guide', 'UI Kit', 'Spreadsheet'].map((tab, i) => (
+        <div class="flex gap-2 py-3 sm:gap-1" id="filter-tabs" role="tablist">
+          {FILTER_TABS.map((tab, i) => (
             <button
               type="button"
               role="tab"
-              data-tab={tab}
+              data-tab={tab.label}
               aria-selected={i === 0}
-              class={`filter-tab shrink-0 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest transition-all ${
+              class={`filter-tab shrink-0 rounded-full px-3.5 py-2 text-[0.72rem] font-semibold tracking-tight transition-all sm:px-4 sm:py-1.5 sm:text-xs sm:font-bold sm:uppercase sm:tracking-widest ${
                 i === 0
-                  ? 'bg-brand-primary text-white'
-                  : 'text-muted-foreground hover:bg-brand-primary/5 hover:text-brand-primary'
+                  ? 'bg-brand-primary text-white shadow-sm'
+                  : 'border border-border/70 bg-white/75 text-muted-foreground hover:bg-brand-primary/5 hover:text-brand-primary'
               }`}
             >
-              {tab}
+              <span class="inline-flex items-center gap-2">
+                <i class={`${tab.icon} text-[0.8rem] sm:text-[0.72rem]`} aria-hidden="true"></i>
+                <span>{tab.label}</span>
+              </span>
             </button>
           ))}
         </div>

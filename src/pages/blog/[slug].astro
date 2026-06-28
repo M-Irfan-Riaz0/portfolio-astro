@@ -48,7 +48,7 @@ const ogImage = post.data.ogImage ?? blogImage.src;
           <span class="page-watermark page-watermark-top">مضمون</span>
           <span class="page-watermark page-watermark-bottom">گہرائی</span>
         </div>
-        <div class="relative z-10 mx-auto max-w-3xl text-center">
+        <div class="relative z-10 mx-auto max-w-none text-center sm:max-w-3xl">
           <div class="flex flex-wrap items-center justify-center gap-3">
             <span class="soft-chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-primary">
               {post.data.category}
@@ -58,7 +58,7 @@ const ogImage = post.data.ogImage ?? blogImage.src;
             </span>
           </div>
 
-          <h1 class="mt-6 text-4xl font-bold leading-[1.02] tracking-tighter text-brand-secondary sm:text-5xl md:text-6xl">
+          <h1 class="mt-6 w-full text-4xl font-bold leading-[1.02] tracking-tighter text-brand-secondary sm:text-5xl md:text-6xl">
             {post.data.title}{" "}
             <span class="text-brand-primary">{post.data.titleAccent}</span>{" "}
             {post.data.titleTail}
