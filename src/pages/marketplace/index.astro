@@ -23,15 +23,6 @@ const CATEGORY_COLORS: Record<string, string> = {
   Spreadsheet: 'soft-chip text-brand-primary',
 };
 
-// Simple line-icon paths per category (drawn inside a 24x24 viewBox).
-const CATEGORY_ICONS: Record<string, string> = {
-  Template:    'M3 3h18v4H3zM3 11h10v10H3zM17 11h4v10h-4z',
-  Checklist:   'M9 11l3 3 8-8M3 6h7M3 12h4M3 18h7',
-  Guide:       'M4 4h11a3 3 0 0 1 3 3v13a2 2 0 0 0-2-2H4zM4 4v14',
-  'UI Kit':    'M3 3h7v7H3zM14 3h7v7h-7zM14 14h7v7h-7zM3 14h7v7H3z',
-  Spreadsheet: 'M3 3h18v18H3zM3 9h18M3 15h18M9 3v18M15 3v18',
-};
-
 function whatsappBuyUrl(name: string) {
   const msg = encodeURIComponent(
     `Assalam-o-Alaikum Irfan, I'd like to purchase "${name}". Please share payment details.`
@@ -52,18 +43,18 @@ function whatsappBuyUrl(name: string) {
 
     <!-- Header -->
     <header class="px-6 pt-6">
-      <div class="page-hero-shell mx-auto max-w-[92rem] rounded-[0.9rem] px-6 py-12 sm:px-8 sm:py-14">
+      <div class="page-hero-shell mx-auto max-w-[72rem] rounded-[0.9rem] px-6 py-12 sm:px-8 sm:py-14">
         <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
           <span class="page-watermark page-watermark-top">بازار</span>
           <span class="page-watermark page-watermark-bottom">وسائل</span>
         </div>
-        <div class="relative z-10">
+        <div class="relative z-10 text-center">
           <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Marketplace</span>
-          <h1 class="mt-4 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-brand-secondary sm:text-5xl md:text-[4.25rem]">
+          <h1 class="mx-auto mt-4 max-w-4xl text-4xl font-bold leading-tight tracking-tight text-brand-secondary sm:text-5xl md:text-[4.25rem]">
             Digital assets built for<br />
             <span class="font-serif italic text-brand-primary">Pakistani businesses.</span>
           </h1>
-          <p class="text-support mt-4 max-w-2xl text-lg leading-relaxed">
+          <p class="text-support mx-auto mt-4 max-w-2xl text-lg leading-relaxed">
             SEO checklists, website templates, UI kits, and tracking tools, now presented in the same calmer and more credible system as the homepage.
           </p>
           <div class="mt-8 grid gap-4 sm:grid-cols-3">
@@ -86,8 +77,8 @@ function whatsappBuyUrl(name: string) {
 
     <!-- Filter tabs -->
     <div class="sticky top-[88px] z-40 px-6 py-4">
-      <div class="glass-nav mx-auto max-w-[92rem] rounded-[0.75rem]">
-      <div class="mx-auto max-w-[92rem] overflow-x-auto px-6">
+      <div class="glass-nav mx-auto max-w-[72rem] rounded-[0.75rem]">
+      <div class="mx-auto max-w-[72rem] overflow-x-auto px-6">
         <div class="flex gap-1 py-3" id="filter-tabs" role="tablist">
           {['All', 'Free', 'Template', 'Checklist', 'Guide', 'UI Kit', 'Spreadsheet'].map((tab, i) => (
             <button
@@ -110,80 +101,60 @@ function whatsappBuyUrl(name: string) {
     </div>
 
     <!-- Product grid -->
-    <main class="mx-auto max-w-[92rem] px-6 py-16">
+    <main class="mx-auto max-w-[72rem] px-6 py-16">
       <div id="product-grid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {sorted.map((product) => {
-          const { name, tagline, category, price, tags, featured, downloadUrl } = product.data;
+          const { name, tagline, category, price, featured, downloadUrl } = product.data;
           const categoryClass = CATEGORY_COLORS[category] ?? 'bg-muted text-muted-foreground';
           const isFree = price.free;
           const priceLabel = isFree
             ? 'Free'
             : `Rs. ${price.pkr?.toLocaleString() ?? '—'} / $${price.usd ?? '—'}`;
 
-          const iconPath = CATEGORY_ICONS[category];
           const previewImage = category === 'Template' || category === 'UI Kit' ? heroImage.src : blogImage.src;
           return (
             <article
               data-category={category}
               data-free={String(isFree)}
-              class={`product-card group relative flex flex-col rounded-[0.7rem] p-5 transition-all duration-200 hover:border-brand-primary/30 ${
-                featured ? 'ui-card border-brand-primary/30 ring-1 ring-brand-primary/10' : 'ui-card'
+              class={`product-card group relative flex flex-col overflow-hidden rounded-[0.9rem] shadow-[0_1px_2px_rgba(8,35,28,0.04)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-elegant ${
+                featured ? 'ui-card ring-1 ring-brand-primary/20' : 'ui-card'
               }`}
             >
-              {featured && (
-                <span class="absolute right-5 top-5 rounded-full bg-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
-                  Featured
-                </span>
-              )}
-
-              <!-- Top row: category icon + price -->
-              <div class="mb-3 flex items-start justify-between gap-3">
-                <div class="flex items-center gap-2.5">
-                  <span class={`grid h-9 w-9 shrink-0 place-items-center rounded-lg ${categoryClass}`}>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="h-[18px] w-[18px]" aria-hidden="true">
-                      <path d={iconPath} />
-                    </svg>
-                  </span>
-                  <span class={`rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest ${categoryClass}`}>
-                    {category}
-                  </span>
-                </div>
-                <span class={`shrink-0 rounded-full px-3 py-1 text-[10px] font-bold ${
-                  isFree
-                    ? 'bg-whatsapp/10 text-whatsapp'
-                    : 'bg-brand-primary/10 text-brand-primary'
-                }`}>
-                  {priceLabel}
-                </span>
-              </div>
-
-              <div class="mb-3 overflow-hidden rounded-[0.65rem] border border-border">
+              <!-- Cover -->
+              <div class="relative overflow-hidden">
                 <img
                   src={previewImage.src ?? previewImage}
                   alt={`${name} preview image`}
-                  class="aspect-[16/10] w-full object-cover"
+                  class="aspect-[16/10] w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
-              </div>
-
-              <h2 class="mb-2 pr-20 text-xl font-bold leading-tight tracking-tight text-brand-secondary transition-colors group-hover:text-brand-primary">
-                {name}
-              </h2>
-              <p class="text-support mb-4 flex-1 text-sm leading-relaxed">
-                {tagline}
-              </p>
-
-              <!-- Tags -->
-              <div class="mb-5 flex flex-wrap gap-2">
-                {tags.map((tag) => (
-                  <span class="text-soft-strong rounded-full border border-border px-2 py-0.5 text-[10px] font-semibold">
-                    {tag}
+                <div class="absolute inset-0 bg-gradient-to-t from-brand-secondary/40 via-transparent to-transparent"></div>
+                <span class={`absolute left-3 top-3 rounded-full px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest backdrop-blur-sm ${categoryClass}`}>
+                  {category}
+                </span>
+                <span class={`absolute right-3 top-3 rounded-full px-3 py-1 text-[10px] font-bold backdrop-blur-sm ${
+                  isFree ? 'bg-whatsapp text-white' : 'bg-white/90 text-brand-primary'
+                }`}>
+                  {priceLabel}
+                </span>
+                {featured && (
+                  <span class="absolute bottom-3 left-3 rounded-full bg-accent px-2.5 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground">
+                    Featured
                   </span>
-                ))}
+                )}
               </div>
 
-              <!-- CTA -->
-              <div class="border-t border-border pt-4">
+              <!-- Body -->
+              <div class="flex flex-1 flex-col p-5">
+                <h2 class="text-lg font-bold leading-snug tracking-tight text-brand-secondary transition-colors group-hover:text-brand-primary">
+                  {name}
+                </h2>
+                <p class="text-support mt-2 flex-1 text-sm leading-relaxed">
+                  {tagline}
+                </p>
+
+                <!-- CTA -->
+                <div class="mt-5">
                 {isFree ? (
                   downloadUrl && downloadUrl !== '#' ? (
                     <a
@@ -220,6 +191,7 @@ function whatsappBuyUrl(name: string) {
                     Buy via WhatsApp
                   </a>
                 )}
+                </div>
               </div>
             </article>
           );
@@ -236,7 +208,7 @@ function whatsappBuyUrl(name: string) {
     </main>
 
     <!-- Bottom CTA -->
-      <div class="mx-auto max-w-[92rem] px-6 pb-16">
+      <div class="mx-auto max-w-[72rem] px-6 pb-16">
       <div class="ui-card flex flex-col items-center justify-between gap-4 rounded-[0.75rem] px-6 py-5 sm:flex-row">
         <div>
           <p class="font-semibold text-brand-secondary">Need something custom?</p>
