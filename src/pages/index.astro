@@ -117,7 +117,11 @@ const FAQS = [
     <SiteNav />
 
     <!-- Hero -->
-    <header id="top" class="border-b border-border">
+    <header id="top" class="relative overflow-hidden border-b border-border">
+      <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+        <span class="hero-watermark hero-watermark-top">پاکستان</span>
+        <span class="hero-watermark hero-watermark-bottom">ترقی</span>
+      </div>
       <div class="mx-auto grid max-w-7xl items-center gap-12 px-6 pb-20 pt-16 lg:grid-cols-2 lg:gap-20 lg:pb-28">
 
         <div class="space-y-8">

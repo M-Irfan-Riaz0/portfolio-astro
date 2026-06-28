@@ -84,3 +84,59 @@
     -webkit-font-smoothing: antialiased;
   }
 }
+
+@layer components {
+  .hero-watermark,
+  .footer-watermark {
+    position: absolute;
+    font-family: var(--font-urdu);
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+  }
+
+  .hero-watermark {
+    color: color-mix(in oklab, var(--brand-primary) 10%, transparent);
+    text-shadow: 0 0 30px color-mix(in oklab, var(--accent) 16%, transparent);
+  }
+
+  .hero-watermark-top {
+    top: 1rem;
+    right: clamp(0.75rem, 4vw, 3rem);
+    font-size: clamp(3rem, 12vw, 7rem);
+    transform: rotate(-8deg);
+  }
+
+  .hero-watermark-bottom {
+    bottom: 0.5rem;
+    left: clamp(0.75rem, 2vw, 2rem);
+    font-size: clamp(2.5rem, 10vw, 5.5rem);
+    transform: rotate(6deg);
+  }
+
+  .footer-watermark-shell {
+    background-image:
+      radial-gradient(circle at top left, color-mix(in oklab, var(--accent) 10%, transparent), transparent 34%),
+      linear-gradient(180deg, color-mix(in oklab, white 65%, var(--background)), var(--card));
+  }
+
+  .footer-watermark {
+    color: color-mix(in oklab, var(--brand-primary) 9%, transparent);
+    text-shadow: 0 0 26px color-mix(in oklab, var(--accent) 14%, transparent);
+  }
+
+  .footer-watermark-left {
+    top: 2rem;
+    left: 1rem;
+    font-size: clamp(2.75rem, 9vw, 5rem);
+    transform: rotate(-10deg);
+  }
+
+  .footer-watermark-right {
+    right: 1rem;
+    bottom: 1.5rem;
+    font-size: clamp(2.5rem, 8vw, 4.75rem);
+    transform: rotate(8deg);
+  }
+}
