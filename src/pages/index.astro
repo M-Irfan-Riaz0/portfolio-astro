@@ -10,6 +10,10 @@ import { WHATSAPP_URL } from '../config';
 
 const allPosts = await getCollection('blog');
 const featuredPost = allPosts[0];
+const marketplaceItems = await getCollection('marketplace');
+const featuredMarketplaceItems = [...marketplaceItems]
+  .sort((a, b) => Number(b.data.featured) - Number(a.data.featured))
+  .slice(0, 3);
 
 const RESULTS = [
   {
@@ -77,6 +81,30 @@ const TESTIMONIALS = [
   },
 ];
 
+const RECENT_PROJECTS = [
+  {
+    name: "Raza Textiles Storefront",
+    category: "E-commerce Build",
+    summary: "A faster storefront for a Faisalabad textile seller, focused on mobile shopping and clearer product navigation.",
+    outcome: "+312% organic growth",
+    detail: "Improved category structure, speed, and product page clarity for lower-friction buying.",
+  },
+  {
+    name: "Lahore Estates Lead Site",
+    category: "Local SEO + Web",
+    summary: "A lead-generation site for a real estate business that needed stronger local search visibility and trust.",
+    outcome: "#1 for 24 local keywords",
+    detail: "Rebuilt the service pages, localized landing pages, and simplified conversion paths.",
+  },
+  {
+    name: "Bloom Studio Refresh",
+    category: "Performance Upgrade",
+    summary: "A Karachi creative business site redesigned to load fast on 4G and feel more premium on first visit.",
+    outcome: "0.9s load on 4G",
+    detail: "Reduced visual clutter, improved asset loading, and strengthened mobile readability.",
+  },
+];
+
 const TRUST_POINTS = [
   {
     icon: "fa-solid fa-sack-dollar",
@@ -93,6 +121,12 @@ const TRUST_POINTS = [
     title: "Built for real internet conditions",
     desc: "The site experience is tuned for mobile use and 4G-heavy browsing habits.",
   },
+];
+
+const ABOUT_POINTS = [
+  "Clear communication without agency jargon or confusing process talk.",
+  "Mobile-first execution because most real users in Pakistan browse on phones.",
+  "A practical mix of design, performance, and SEO so the site actually helps the business grow.",
 ];
 
 const FAQS = [
@@ -121,6 +155,11 @@ const FAQS = [
     a: "Bilkul. UAE, UK, USA aur Canada ke Pakistani-owned businesses ke saath regularly kaam karte hain. Pricing USD mein adjust kar lete hain.",
   },
 ];
+
+function formatMarketplacePrice(item: typeof marketplaceItems[number]) {
+  if (item.data.price.free) return 'Free';
+  return `Rs. ${item.data.price.pkr?.toLocaleString() ?? '—'}`;
+}
 ---
 
 <Layout
@@ -235,6 +274,36 @@ const FAQS = [
       </div>
     </section>
 
+    <!-- About -->
+    <section class="bg-white py-20">
+      <div class="mx-auto grid max-w-[72rem] gap-8 px-3 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+        <div>
+          <span class="section-kicker text-xs font-bold uppercase text-brand-primary">About Us</span>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-brand-secondary sm:text-4xl">
+            A practical growth partner for businesses that need more than just a pretty website.
+          </h2>
+        </div>
+        <div class="space-y-5">
+          <p class="text-support text-base leading-relaxed sm:text-lg">
+            I build websites, landing pages, and SEO systems for Pakistani businesses that want clarity, trust, and measurable results. The work is not about trends or visual noise. It is about helping a business look credible, load fast, and convert better.
+          </p>
+          <p class="text-support text-base leading-relaxed sm:text-lg">
+            The process stays intentionally simple: understand the business, improve the customer journey, and build pages that perform well on mobile and search. That means fewer wasted steps, stronger communication, and work that feels useful from day one.
+          </p>
+          <div class="grid gap-3">
+            {ABOUT_POINTS.map((point) => (
+              <div class="ui-card flex items-start gap-3 rounded-[0.5rem] p-4">
+                <span class="mt-0.5 grid h-8 w-8 shrink-0 place-items-center rounded-full bg-brand-primary/10 text-brand-primary">
+                  <i class="fa-solid fa-check text-xs" aria-hidden="true"></i>
+                </span>
+                <p class="text-sm leading-relaxed text-soft-strong">{point}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Results -->
     <section id="results" class="bg-white py-20">
       <div class="mx-auto max-w-[72rem] px-3 sm:px-6">
@@ -258,6 +327,36 @@ const FAQS = [
                 <div class="text-xs uppercase tracking-wider text-muted-foreground">{c.city}</div>
               </div>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recent Projects -->
+    <section class="bg-[#f7f3ea] py-20">
+      <div class="mx-auto max-w-[72rem] px-3 sm:px-6">
+        <div class="mb-12 text-center">
+          <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Recent Projects</span>
+          <h2 class="mt-2 text-3xl font-bold text-brand-secondary sm:text-4xl">
+            Recent work that solved <span class="text-brand-primary">real business problems</span>.
+          </h2>
+          <p class="text-support mx-auto mt-3 max-w-2xl text-base leading-relaxed">
+            Not just pretty layouts. These are projects shaped around speed, trust, and better conversion for actual Pakistani businesses.
+          </p>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          {RECENT_PROJECTS.map((project) => (
+            <article class="ui-card rounded-[0.5rem] p-6">
+              <div class="mb-4 flex items-center justify-between gap-3">
+                <span class="soft-chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-primary">
+                  {project.category}
+                </span>
+                <span class="text-sm font-bold text-brand-primary">{project.outcome}</span>
+              </div>
+              <h3 class="text-xl font-bold leading-tight tracking-tight text-brand-secondary">{project.name}</h3>
+              <p class="text-support mt-3 text-sm leading-relaxed">{project.summary}</p>
+              <p class="mt-5 border-t border-border pt-4 text-sm leading-relaxed text-soft-strong">{project.detail}</p>
+            </article>
           ))}
         </div>
       </div>
@@ -324,6 +423,62 @@ const FAQS = [
                 Get Started
               </a>
             </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Marketplace -->
+    <section class="bg-white py-20">
+      <div class="mx-auto max-w-[72rem] px-3 sm:px-6">
+        <div class="mb-12 flex flex-col items-center gap-4 text-center sm:flex-row sm:items-end sm:justify-between sm:text-left">
+          <div>
+            <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Featured Marketplace</span>
+            <h2 class="mt-2 text-3xl font-bold text-brand-secondary sm:text-4xl">
+              Useful digital products for <span class="text-brand-primary">faster execution</span>.
+            </h2>
+            <p class="text-support mt-3 max-w-2xl text-base leading-relaxed">
+              Ready-to-use templates, checklists, and systems for businesses that want practical progress without starting from zero.
+            </p>
+          </div>
+          <a
+            href="/marketplace"
+            class="inline-flex items-center gap-2 rounded-full border border-border px-5 py-2.5 text-sm font-bold text-brand-secondary transition-colors hover:border-brand-primary hover:text-brand-primary"
+          >
+            Browse marketplace
+            <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+          </a>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          {featuredMarketplaceItems.map((item) => (
+            <article class="ui-card rounded-[0.5rem] p-6">
+              <div class="mb-4 flex items-center justify-between gap-3">
+                <span class="soft-chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.14em] text-brand-primary">
+                  {item.data.category}
+                </span>
+                <span class={`text-sm font-bold ${item.data.price.free ? 'text-whatsapp' : 'text-brand-primary'}`}>
+                  {formatMarketplacePrice(item)}
+                </span>
+              </div>
+              <h3 class="text-xl font-bold leading-tight tracking-tight text-brand-secondary">{item.data.name}</h3>
+              <p class="text-support mt-3 text-sm leading-relaxed">{item.data.tagline}</p>
+              <div class="mt-5 flex flex-wrap gap-2">
+                {item.data.tags.slice(0, 3).map((tag) => (
+                  <span class="rounded-full border border-border px-2.5 py-1 text-[10px] font-semibold text-soft-strong">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div class="mt-6 border-t border-border pt-4">
+                <a
+                  href="/marketplace"
+                  class="inline-flex items-center gap-2 text-sm font-bold text-brand-primary transition-colors hover:text-accent"
+                >
+                  View in marketplace
+                  <i class="fa-solid fa-arrow-right text-xs" aria-hidden="true"></i>
+                </a>
+              </div>
+            </article>
           ))}
         </div>
       </div>
