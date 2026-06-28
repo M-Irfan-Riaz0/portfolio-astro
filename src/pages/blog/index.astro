@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
+import blogImage from '../../assets/blog-seo.jpg';
 
 const posts = await getCollection('blog');
 ---
@@ -16,35 +17,51 @@ const posts = await getCollection('blog');
   <div class="min-h-screen bg-background font-sans text-brand-secondary">
     <SiteNav />
 
-    <header class="border-b border-border py-16 sm:py-20">
-      <div class="mx-auto max-w-7xl px-6">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">From the Journal</span>
-        <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight text-brand-secondary sm:text-5xl">
-          Ideas, playbooks & SEO <span class="font-serif italic text-brand-primary">tips</span><br />for Pakistani businesses.
-        </h1>
+    <header class="px-6 pt-6">
+      <div class="page-hero-shell mx-auto max-w-7xl rounded-[2.5rem] px-6 py-14 sm:px-8 sm:py-16">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+          <span class="page-watermark page-watermark-top">خیالات</span>
+          <span class="page-watermark page-watermark-bottom">تحریر</span>
+        </div>
+        <div class="relative z-10 max-w-3xl">
+          <span class="section-kicker text-xs font-bold uppercase text-brand-primary">From the Journal</span>
+          <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight text-brand-secondary sm:text-5xl md:text-6xl">
+            Ideas, playbooks & SEO <span class="font-serif italic text-brand-primary">thinking</span><br />for Pakistani businesses.
+          </h1>
+          <p class="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            Long-form notes on trust, visibility, performance, and local business growth, written in a calmer, more human tone.
+          </p>
+        </div>
       </div>
     </header>
 
     <main class="mx-auto max-w-7xl px-6 py-16">
       <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
         {posts.map((post) => (
-          <article class="rounded-2xl border border-border bg-card p-7">
+          <article class="ui-card group rounded-[1.85rem] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant">
             <div class="mb-4 flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-widest text-muted-foreground">
-              <span class="rounded-full bg-brand-primary/10 px-3 py-1 text-brand-primary">{post.data.category}</span>
+              <span class="soft-chip rounded-full px-3 py-1 text-brand-primary">{post.data.category}</span>
               <span>•</span>
               <span>{post.data.readMinutes} min read</span>
               <span>•</span>
               <span>{post.data.date}</span>
             </div>
+            <div class="media-panel mb-5 min-h-[13rem]">
+              <img src={blogImage.src} alt={`${post.data.title} article thumbnail`} />
+              <div class="media-overlay">
+                <span class="media-label">{post.data.category}</span>
+                <p class="mt-3 max-w-[15rem] text-sm leading-relaxed text-white/85">{post.data.excerpt}</p>
+              </div>
+            </div>
             <h2 class="mb-3 text-xl font-bold leading-tight tracking-tight text-brand-secondary">
               {post.data.title}{' '}
-              <span class="font-serif italic text-brand-primary">{post.data.titleAccent}</span>{' '}
+              <span class="text-brand-primary">{post.data.titleAccent}</span>{' '}
               {post.data.titleTail}
             </h2>
             <p class="mb-6 text-sm leading-relaxed text-muted-foreground">{post.data.excerpt}</p>
             <a
               href={`/blog/${post.id}`}
-              class="inline-flex items-center gap-2 text-sm font-bold text-brand-primary transition-all hover:text-accent"
+              class="inline-flex items-center gap-2 text-sm font-bold text-brand-primary transition-all group-hover:gap-3 hover:text-accent"
             >
               Read article →
             </a>

@@ -9,7 +9,7 @@ import { WHATSAPP_URL } from '../config';
     id="wa-popup"
     class="pointer-events-none w-[19rem] origin-bottom-right translate-y-3 scale-95 opacity-0 transition-all duration-200 sm:w-80"
   >
-    <div class="overflow-hidden rounded-2xl border border-border bg-card shadow-2xl shadow-brand-primary/15">
+    <div class="section-shell overflow-hidden rounded-[1.75rem] shadow-2xl shadow-brand-primary/15">
       <!-- Header -->
       <div class="flex items-center gap-3 bg-brand-primary px-4 py-3.5">
         <div class="relative grid h-10 w-10 shrink-0 place-items-center rounded-full bg-white/15 text-base font-bold text-white">
@@ -34,17 +34,17 @@ import { WHATSAPP_URL } from '../config';
       </div>
 
       <!-- Body -->
-      <div class="space-y-2 bg-muted/40 px-4 py-5">
-        <div class="max-w-[85%] rounded-2xl rounded-tl-sm bg-card px-3.5 py-2.5 text-sm leading-relaxed text-brand-secondary shadow-sm">
+      <div class="space-y-2 bg-muted/30 px-4 py-5">
+        <div class="ui-card max-w-[85%] rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm leading-relaxed text-brand-secondary shadow-sm">
           Assalam-o-Alaikum! 👋
         </div>
-        <div class="max-w-[90%] rounded-2xl rounded-tl-sm bg-card px-3.5 py-2.5 text-sm leading-relaxed text-brand-secondary shadow-sm">
+        <div class="ui-card max-w-[90%] rounded-2xl rounded-tl-sm px-3.5 py-2.5 text-sm leading-relaxed text-brand-secondary shadow-sm">
           Website ya SEO ke baare mein koi sawaal hai? Message karein — free consultation.
         </div>
       </div>
 
       <!-- CTA -->
-      <div class="border-t border-border bg-card p-3">
+      <div class="border-t border-border bg-transparent p-3">
         <a
           href={WHATSAPP_URL}
           target="_blank"

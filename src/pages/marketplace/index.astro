@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import SiteNav from '../../components/SiteNav.astro';
 import SiteFooter from '../../components/SiteFooter.astro';
 import heroImage from '../../assets/hero-workspace.jpg';
+import blogImage from '../../assets/blog-seo.jpg';
 import { WHATSAPP_URL, WHATSAPP_NUMBER } from '../../config';
 
 const products = await getCollection('marketplace');
@@ -15,11 +16,11 @@ const sorted = [...featured, ...rest];
 const freeCount = products.filter((p) => p.data.price.free).length;
 
 const CATEGORY_COLORS: Record<string, string> = {
-  Template:    'bg-brand-primary/10 text-brand-primary',
+  Template:    'soft-chip text-brand-primary',
   Checklist:   'bg-accent/20 text-brand-secondary',
   Guide:       'bg-whatsapp/10 text-whatsapp',
-  'UI Kit':    'bg-purple-100 text-purple-700',
-  Spreadsheet: 'bg-blue-100 text-blue-700',
+  'UI Kit':    'bg-brand-primary/10 text-brand-secondary',
+  Spreadsheet: 'bg-brand-primary/10 text-brand-primary',
 };
 
 // Simple line-icon paths per category (drawn inside a 24x24 viewBox).
@@ -50,35 +51,42 @@ function whatsappBuyUrl(name: string) {
     <SiteNav />
 
     <!-- Header -->
-    <header class="border-b border-border py-16 sm:py-20">
-      <div class="mx-auto max-w-7xl px-6">
-        <span class="text-xs font-bold uppercase tracking-[0.2em] text-brand-primary">Marketplace</span>
-        <h1 class="mt-4 text-4xl font-bold leading-tight tracking-tight text-brand-secondary sm:text-5xl">
-          Digital assets built for<br />
-          <span class="font-serif italic text-brand-primary">Pakistani businesses.</span>
-        </h1>
-        <p class="mt-4 max-w-xl text-lg leading-relaxed text-muted-foreground">
-          SEO checklists, website templates, UI kits, and tracking tools — no fluff, no filler.
-        </p>
-        <div class="mt-8 flex gap-8 border-t border-border pt-6">
-          <div>
-            <div class="text-2xl font-bold text-brand-secondary">{products.length}</div>
-            <div class="text-xs text-muted-foreground">Assets available</div>
-          </div>
-          <div>
-            <div class="text-2xl font-bold text-brand-secondary">{freeCount}</div>
-            <div class="text-xs text-muted-foreground">Completely free</div>
-          </div>
-          <div>
-            <div class="text-2xl font-bold text-brand-secondary">Instant</div>
-            <div class="text-xs text-muted-foreground">Delivery</div>
+    <header class="px-6 pt-6">
+      <div class="page-hero-shell mx-auto max-w-7xl rounded-[2.5rem] px-6 py-14 sm:px-8 sm:py-16">
+        <div aria-hidden="true" class="pointer-events-none absolute inset-0 overflow-hidden">
+          <span class="page-watermark page-watermark-top">بازار</span>
+          <span class="page-watermark page-watermark-bottom">وسائل</span>
+        </div>
+        <div class="relative z-10">
+          <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Marketplace</span>
+          <h1 class="mt-4 max-w-3xl text-4xl font-bold leading-tight tracking-tight text-brand-secondary sm:text-5xl md:text-6xl">
+            Digital assets built for<br />
+            <span class="font-serif italic text-brand-primary">Pakistani businesses.</span>
+          </h1>
+          <p class="mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+            SEO checklists, website templates, UI kits, and tracking tools, now presented in the same calmer and more credible system as the homepage.
+          </p>
+          <div class="mt-8 grid gap-4 sm:grid-cols-3">
+            <div class="ui-card rounded-[1.5rem] p-5">
+              <div class="text-2xl font-bold text-brand-secondary">{products.length}</div>
+              <div class="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">Assets available</div>
+            </div>
+            <div class="ui-card rounded-[1.5rem] p-5">
+              <div class="text-2xl font-bold text-brand-secondary">{freeCount}</div>
+              <div class="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">Completely free</div>
+            </div>
+            <div class="ui-card rounded-[1.5rem] p-5">
+              <div class="text-2xl font-bold text-brand-secondary">Instant</div>
+              <div class="mt-1 text-xs uppercase tracking-[0.16em] text-muted-foreground">Delivery</div>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
     <!-- Filter tabs -->
-    <div class="sticky top-[73px] z-40 border-b border-border bg-background/90 backdrop-blur-md">
+    <div class="sticky top-[88px] z-40 px-6 py-4">
+      <div class="glass-nav mx-auto max-w-7xl rounded-[1.6rem]">
       <div class="mx-auto max-w-7xl overflow-x-auto px-6">
         <div class="flex gap-1 py-3" id="filter-tabs" role="tablist">
           {['All', 'Free', 'Template', 'Checklist', 'Guide', 'UI Kit', 'Spreadsheet'].map((tab, i) => (
@@ -98,6 +106,7 @@ function whatsappBuyUrl(name: string) {
           ))}
         </div>
       </div>
+      </div>
     </div>
 
     <!-- Product grid -->
@@ -112,13 +121,15 @@ function whatsappBuyUrl(name: string) {
             : `Rs. ${price.pkr?.toLocaleString() ?? '—'} / $${price.usd ?? '—'}`;
 
           const iconPath = CATEGORY_ICONS[category];
+          const previewImage = category === 'Template' || category === 'UI Kit' ? heroImage.src : blogImage.src;
+          const previewLabel = category === 'Spreadsheet' ? 'Tracking' : category === 'Checklist' ? 'Actionable' : category;
 
           return (
             <article
               data-category={category}
               data-free={String(isFree)}
-              class={`product-card group relative flex flex-col overflow-hidden rounded-2xl border bg-card p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/5 ${
-                featured ? 'border-brand-primary/30 ring-1 ring-brand-primary/10' : 'border-border hover:border-brand-primary/30'
+              class={`product-card group relative flex flex-col overflow-hidden rounded-[1.9rem] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant ${
+                featured ? 'ui-card-strong border-brand-primary/30 text-white ring-1 ring-brand-primary/10' : 'ui-card hover:border-brand-primary/30'
               }`}
             >
               {featured && (
@@ -145,30 +156,40 @@ function whatsappBuyUrl(name: string) {
                 <span class={`shrink-0 rounded-full px-3 py-1 text-[10px] font-bold ${
                   isFree
                     ? 'bg-whatsapp/10 text-whatsapp'
-                    : 'bg-brand-primary/10 text-brand-primary'
+                    : featured ? 'bg-white/10 text-white' : 'bg-brand-primary/10 text-brand-primary'
                 }`}>
                   {priceLabel}
                 </span>
               </div>
 
-              <h2 class="mb-2 text-xl font-bold leading-tight tracking-tight text-brand-secondary transition-colors group-hover:text-brand-primary">
+              <div class="media-panel mb-5 min-h-[12.5rem]">
+                <img src={previewImage} alt={`${name} preview thumbnail`} />
+                <div class="media-overlay">
+                  <span class="media-label">{previewLabel}</span>
+                  <p class={`mt-3 max-w-[15rem] text-sm leading-relaxed ${featured ? 'text-white/88' : 'text-white/85'}`}>
+                    {tagline}
+                  </p>
+                </div>
+              </div>
+
+              <h2 class={`mb-2 text-xl font-bold leading-tight tracking-tight transition-colors ${featured ? 'text-white group-hover:text-accent' : 'text-brand-secondary group-hover:text-brand-primary'}`}>
                 {name}
               </h2>
-              <p class="mb-5 flex-1 text-sm leading-relaxed text-muted-foreground">
+              <p class={`mb-5 flex-1 text-sm leading-relaxed ${featured ? 'text-white/78' : 'text-muted-foreground'}`}>
                 {tagline}
               </p>
 
               <!-- Tags -->
               <div class="mb-6 flex flex-wrap gap-2">
                 {tags.map((tag) => (
-                  <span class="rounded-full border border-border px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                  <span class={`rounded-full border px-2 py-0.5 text-[10px] font-semibold ${featured ? 'border-white/15 text-white/70' : 'border-border text-muted-foreground'}`}>
                     {tag}
                   </span>
                 ))}
               </div>
 
               <!-- CTA -->
-              <div class="border-t border-border pt-5">
+              <div class={`pt-5 ${featured ? 'border-t border-white/15' : 'border-t border-border'}`}>
                 {isFree ? (
                   downloadUrl && downloadUrl !== '#' ? (
                     <a
@@ -222,7 +243,7 @@ function whatsappBuyUrl(name: string) {
 
     <!-- Bottom CTA -->
     <div class="mx-auto max-w-7xl px-6 pb-16">
-      <div class="flex flex-col items-center justify-between gap-4 rounded-2xl border border-brand-primary/10 bg-brand-primary/5 px-6 py-6 sm:flex-row">
+      <div class="human-note flex flex-col items-center justify-between gap-4 rounded-[2rem] px-6 py-6 sm:flex-row">
         <div>
           <p class="font-semibold text-brand-secondary">Need something custom?</p>
           <p class="mt-1 text-sm text-muted-foreground">

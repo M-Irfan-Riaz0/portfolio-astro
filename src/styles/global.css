@@ -5,8 +5,6 @@
 @import "@fontsource/outfit/400.css";
 @import "@fontsource/outfit/600.css";
 @import "@fontsource/outfit/700.css";
-@import "@fontsource/instrument-serif/400-italic.css";
-@import "@fontsource/instrument-serif/400.css";
 @import "@fontsource/noto-nastaliq-urdu/400.css";
 @import "@fontsource/noto-nastaliq-urdu/700.css";
 
@@ -37,8 +35,8 @@
   --color-whatsapp: var(--whatsapp);
 
   --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Instrument Serif", ui-serif, Georgia, serif;
-  --font-urdu: "Noto Nastaliq Urdu", "Instrument Serif", serif;
+  --font-serif: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-urdu: "Noto Nastaliq Urdu", "Outfit", serif;
 
   --shadow-elegant: 0 25px 50px -12px color-mix(in oklab, var(--brand-primary) 25%, transparent);
   --shadow-accent: 0 20px 40px -10px color-mix(in oklab, var(--accent) 30%, transparent);
@@ -47,13 +45,13 @@
 :root {
   --radius: 0.75rem;
 
-  --background: oklch(0.978 0.01 85);
+  --background: oklch(1 0 0);
   --foreground: oklch(0.24 0.045 165);
 
-  --card: oklch(0.995 0.006 90);
+  --card: oklch(0.995 0.004 90);
   --card-foreground: oklch(0.24 0.045 165);
 
-  --muted: oklch(0.95 0.01 80);
+  --muted: oklch(0.965 0.006 85);
   --muted-foreground: oklch(0.52 0.018 165);
 
   --border: oklch(0.9 0.012 85);
@@ -79,10 +77,6 @@
 
   body {
     background-color: var(--color-background);
-    background-image:
-      radial-gradient(circle at top left, color-mix(in oklab, var(--accent) 18%, transparent), transparent 28%),
-      radial-gradient(circle at top right, color-mix(in oklab, var(--brand-primary) 10%, transparent), transparent 26%),
-      linear-gradient(180deg, color-mix(in oklab, white 72%, var(--background)), var(--background) 32%, color-mix(in oklab, var(--muted) 55%, white));
     color: var(--color-foreground);
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
@@ -102,17 +96,16 @@
   .section-shell {
     border: 1px solid color-mix(in oklab, var(--border) 88%, white);
     background:
-      linear-gradient(180deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.62)),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(250, 248, 243, 0.92)),
       color-mix(in oklab, var(--card) 92%, white);
     box-shadow:
       0 30px 60px -40px rgba(8, 35, 28, 0.28),
       inset 0 1px 0 rgba(255, 255, 255, 0.82);
-    backdrop-filter: blur(8px);
   }
 
   .ui-card {
     border: 1px solid color-mix(in oklab, var(--border) 92%, white);
-    background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(250, 248, 242, 0.88));
+    background: linear-gradient(180deg, rgba(255, 255, 255, 1), rgba(250, 248, 242, 0.96));
     box-shadow: 0 24px 40px -34px rgba(8, 35, 28, 0.2);
   }
 
@@ -139,6 +132,151 @@
     background:
       linear-gradient(180deg, rgba(255, 251, 238, 0.96), rgba(252, 247, 232, 0.88));
     box-shadow: 0 18px 34px -26px rgba(133, 98, 17, 0.35);
+  }
+
+  .media-panel {
+    position: relative;
+    overflow: hidden;
+    border-radius: 1.35rem;
+    min-height: 12rem;
+    background:
+      linear-gradient(180deg, rgba(8, 35, 28, 0.08), rgba(8, 35, 28, 0.5)),
+      color-mix(in oklab, var(--muted) 70%, white);
+  }
+
+  .media-panel::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(8, 35, 28, 0.4));
+    pointer-events: none;
+  }
+
+  .media-panel img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .media-overlay {
+    position: absolute;
+    inset-inline: 0;
+    bottom: 0;
+    z-index: 1;
+    padding: 1rem;
+    color: white;
+  }
+
+  .media-label {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    padding: 0.35rem 0.7rem;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    backdrop-filter: blur(8px);
+  }
+
+  .page-hero-shell {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid color-mix(in oklab, var(--border) 88%, white);
+    background:
+      radial-gradient(circle at top right, color-mix(in oklab, var(--accent) 12%, transparent), transparent 26%),
+      linear-gradient(180deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.64)),
+      color-mix(in oklab, var(--card) 92%, white);
+    box-shadow:
+      0 30px 60px -40px rgba(8, 35, 28, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.84);
+    backdrop-filter: blur(8px);
+  }
+
+  .page-watermark {
+    position: absolute;
+    font-family: var(--font-urdu);
+    font-weight: 700;
+    line-height: 1;
+    white-space: nowrap;
+    user-select: none;
+    color: color-mix(in oklab, var(--brand-primary) 8%, transparent);
+    text-shadow: 0 0 24px color-mix(in oklab, var(--accent) 14%, transparent);
+  }
+
+  .page-watermark-top {
+    top: 1rem;
+    right: 1rem;
+    font-size: clamp(2.75rem, 9vw, 5.5rem);
+    transform: rotate(-8deg);
+  }
+
+  .page-watermark-bottom {
+    bottom: 0.75rem;
+    left: 1rem;
+    font-size: clamp(2.25rem, 7vw, 4.25rem);
+    transform: rotate(8deg);
+  }
+
+  .article-prose {
+    color: var(--color-muted-foreground);
+  }
+
+  .article-prose h2,
+  .article-prose h3,
+  .article-prose strong {
+    color: var(--color-brand-secondary);
+  }
+
+  .article-prose h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.6rem, 2.1vw, 2rem);
+    line-height: 1.15;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+  }
+
+  .article-prose h3 {
+    margin-top: 1.75rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    line-height: 1.2;
+    font-weight: 700;
+  }
+
+  .article-prose p,
+  .article-prose ul,
+  .article-prose ol,
+  .article-prose blockquote {
+    margin-top: 1rem;
+    font-size: 1.02rem;
+    line-height: 1.9;
+  }
+
+  .article-prose ul,
+  .article-prose ol {
+    padding-left: 1.25rem;
+  }
+
+  .article-prose li + li {
+    margin-top: 0.5rem;
+  }
+
+  .article-prose blockquote {
+    border-left: 3px solid color-mix(in oklab, var(--accent) 58%, white);
+    padding-left: 1rem;
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--color-brand-secondary);
+  }
+
+  .article-prose a {
+    color: var(--color-brand-primary);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in oklab, var(--accent) 54%, transparent);
+    text-underline-offset: 0.18em;
   }
 
   .hero-watermark,
