@@ -61,7 +61,7 @@
   --ring: rgba(99, 102, 241, 0.5);
 
   /* Brand */
-  --brand-primary: #10b981; /* emerald */
+  --brand-primary: #ffffff; /* emerald */
   --brand-secondary: #047857; /* darker emerald */
   --accent: #f59e0b; /* amber */
   --accent-foreground: #0f172a;
@@ -86,9 +86,7 @@
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4, h5, h6 {
-    color: #ffffff;
-  }
+
 }
 
 @layer components {
