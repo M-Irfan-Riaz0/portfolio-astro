@@ -57,11 +57,7 @@ export default function ProcessSteps() {
 
   return (
     <div className="space-y-6">
-      <div className="relative grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute left-0 right-0 top-12 hidden h-px bg-gradient-to-r from-transparent via-brand-primary/20 to-transparent lg:block"
-        />
+      <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
         {PROCESS_STEPS.map((p, i) => {
           const isActive = i === active;
           return (
@@ -72,42 +68,28 @@ export default function ProcessSteps() {
               onFocus={() => setActive(i)}
               onClick={() => setActive(i)}
               aria-pressed={isActive}
-              style={{ animationDelay: `${i * 80}ms` }}
-              className={`group animate-fade-in relative cursor-pointer rounded-[1.75rem] border p-7 text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-elegant focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary ${
+              className={`group relative cursor-pointer rounded-[1.5rem] border p-6 text-left transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-primary ${
                 isActive
-                  ? "ui-card -translate-y-1 border-brand-primary/40 shadow-elegant"
+                  ? "ui-card border-brand-primary/40"
                   : "ui-card border-border"
               }`}
             >
-              <div className="relative z-10 mb-6 flex items-center justify-between">
+              <div className="mb-5 flex items-center justify-between">
                 <div
-                  className={`grid h-12 w-12 place-items-center rounded-full text-sm font-bold shadow-lg transition-all duration-300 ${
+                  className={`grid h-11 w-11 place-items-center rounded-full text-sm font-bold transition-colors duration-200 ${
                     isActive
-                      ? "scale-110 bg-accent text-accent-foreground shadow-accent/30"
+                      ? "bg-brand-primary text-white"
                       : "bg-brand-primary text-white shadow-brand-primary/20"
                   }`}
                 >
                   {p.step}
                 </div>
-                <span className="rounded-full bg-accent/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-primary">
+                <span className="soft-chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-brand-primary">
                   {p.tag}
                 </span>
               </div>
               <h3 className="mb-3 text-xl font-bold text-brand-secondary">{p.en}</h3>
               <p className="text-sm leading-relaxed text-muted-foreground">{p.desc}</p>
-              <div
-                className={`mt-4 h-1 rounded-full bg-accent transition-all duration-500 ${
-                  isActive ? "w-12 opacity-100" : "w-6 opacity-30"
-                }`}
-              />
-              {i < 3 && (
-                <div
-                  aria-hidden="true"
-                  className="pointer-events-none absolute -right-3 top-12 hidden h-6 w-6 place-items-center rounded-full border border-border bg-background text-brand-primary lg:grid"
-                >
-                  →
-                </div>
-              )}
             </button>
           );
         })}
@@ -116,11 +98,11 @@ export default function ProcessSteps() {
       {/* Detail panel */}
       <div
         key={active}
-        className="ui-card animate-fade-in rounded-[2rem] border border-brand-primary/15 p-8 shadow-elegant md:p-10"
+        className="ui-card rounded-[1.75rem] border border-brand-primary/15 p-8 md:p-10"
       >
         <div className="grid gap-8 md:grid-cols-[1fr_2fr] md:gap-12">
           <div className="space-y-3">
-            <div className="text-[10px] font-bold uppercase tracking-widest text-accent">
+            <div className="text-[10px] font-bold uppercase tracking-widest text-brand-primary">
               Step {PROCESS_STEPS[active].step}
             </div>
             <h4 className="text-2xl font-bold text-brand-secondary">

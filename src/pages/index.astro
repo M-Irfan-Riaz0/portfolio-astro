@@ -77,6 +77,21 @@ const TESTIMONIALS = [
   },
 ];
 
+const TRUST_POINTS = [
+  {
+    title: "PKR-first pricing",
+    desc: "No confusing currency games. Pakistani clients see real local pricing from the start.",
+  },
+  {
+    title: "WhatsApp-first communication",
+    desc: "Fast replies, clear updates, and no agency-style silence during the project.",
+  },
+  {
+    title: "Built for real internet conditions",
+    desc: "The site experience is tuned for mobile use and 4G-heavy browsing habits.",
+  },
+];
+
 const FAQS = [
   {
     q: "Aap ki pricing PKR mein hai ya USD?",
@@ -126,10 +141,7 @@ const FAQS = [
 
         <div class="space-y-8">
           <div class="space-y-5">
-            <div class="flex flex-wrap items-center gap-3">
-              <span class="soft-chip rounded-full px-4 py-2 text-[11px] font-bold uppercase tracking-[0.22em] text-brand-primary">Apple HIG inspired</span>
-              <span class="soft-chip rounded-full px-4 py-2 text-[11px] font-semibold tracking-wide text-muted-foreground">Human, warm, high-trust</span>
-            </div>
+            <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Lahore-based Web Development & SEO</span>
             <h1 class="max-w-3xl text-5xl font-bold leading-[0.98] tracking-tight text-brand-secondary sm:text-6xl lg:text-7xl">
               A website that feels
               <span class="block text-brand-primary">expensive, calm,</span>
@@ -189,13 +201,6 @@ const FAQS = [
               </p>
             </div>
           </div>
-
-          <div class="human-note rounded-[1.75rem] p-6">
-            <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-brand-primary">What changes now</p>
-            <p class="mt-3 text-base leading-relaxed text-brand-secondary">
-              We’re moving away from “AI website vibes” and toward a more human system: softer hierarchy, deliberate spacing, clearer trust cues, and a warmer emotional tone.
-            </p>
-          </div>
         </div>
       </div>
     </header>
@@ -205,21 +210,15 @@ const FAQS = [
       <div class="mx-auto max-w-7xl px-6">
         <div class="mb-12">
           <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Solutions</span>
-          <h2 class="mt-2 text-3xl font-bold tracking-tight text-brand-secondary sm:text-4xl">A clearer, more premium system for growth.</h2>
+          <h2 class="mt-2 text-3xl font-bold tracking-tight text-brand-secondary sm:text-4xl">Services shaped for trust, speed, and conversion.</h2>
           <p class="mt-3 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Inspired by Apple’s calm, layered interface language, but adapted for Pakistani buying behavior: less noise, more reassurance, and stronger first-impression trust.
+            Clean structure, clear value, and less visual noise. Every part should help a visitor understand what you do and why they should trust you.
           </p>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
 
-          <div class="ui-card rounded-[1.75rem] p-5">
-            <div class="media-panel mb-5">
-              <img src={heroImage.src} alt="Custom website design preview" />
-              <div class="media-overlay">
-                <span class="media-label">Custom Build</span>
-                <p class="mt-3 max-w-[15rem] text-sm leading-relaxed text-white/85">Structured layouts, clean mobile hierarchy, and a sharper first impression.</p>
-              </div>
-            </div>
+          <div class="ui-card rounded-[1.75rem] p-7">
+            <span class="soft-chip inline-flex rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">Custom Build</span>
             <h3 class="mb-3 text-lg font-bold text-brand-secondary">Custom Web Development</h3>
             <p class="mb-5 text-sm leading-relaxed text-muted-foreground">High-performance builds engineered for speed, trust, and a polished first impression on every screen.</p>
             <ul class="space-y-1.5 text-sm text-brand-secondary/80">
@@ -229,31 +228,19 @@ const FAQS = [
             </ul>
           </div>
 
-          <div class="ui-card-strong rounded-[1.75rem] p-5 text-white">
-            <div class="media-panel mb-5 min-h-[13rem]">
-              <img src={blogImage.src} alt="SEO content and ranking strategy visual" />
-              <div class="media-overlay">
-                <span class="media-label">Search Growth</span>
-                <p class="mt-3 max-w-[15rem] text-sm leading-relaxed text-white/85">Pages that rank, reassure, and convert instead of just chasing clicks.</p>
-              </div>
-            </div>
-            <h3 class="mb-3 text-lg font-bold">Elite SEO Strategy</h3>
-            <p class="mb-5 text-sm leading-relaxed text-white/72">We don’t just rank. We shape pages and search presence so your business feels credible before the first message arrives.</p>
-            <ul class="space-y-1.5 text-sm text-white/82">
+          <div class="ui-card rounded-[1.75rem] border-brand-primary/25 p-7">
+            <span class="soft-chip inline-flex rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">Search Growth</span>
+            <h3 class="mb-3 text-lg font-bold text-brand-secondary">Elite SEO Strategy</h3>
+            <p class="mb-5 text-sm leading-relaxed text-muted-foreground">We don’t just rank. We shape pages and search presence so your business feels credible before the first message arrives.</p>
+            <ul class="space-y-1.5 text-sm text-brand-secondary/80">
               <li>• Competitor analysis by city and niche</li>
               <li>• Content strategy with local intent</li>
               <li>• On-page structure that supports conversion</li>
             </ul>
           </div>
 
-          <div class="ui-card rounded-[1.75rem] p-5">
-            <div class="media-panel mb-5">
-              <img src={heroImage.src} alt="Ongoing support and optimization workspace" class="object-[center_70%]" />
-              <div class="media-overlay">
-                <span class="media-label">Long-term Care</span>
-                <p class="mt-3 max-w-[15rem] text-sm leading-relaxed text-white/85">A site that stays maintained, measured, and commercially sharp after launch.</p>
-              </div>
-            </div>
+          <div class="ui-card rounded-[1.75rem] p-7">
+            <span class="soft-chip inline-flex rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">Long-term Care</span>
             <h3 class="mb-3 text-lg font-bold text-brand-secondary">Managed Growth</h3>
             <p class="mb-5 text-sm leading-relaxed text-muted-foreground">Continuous support so your site stays fast, secure, and emotionally reassuring after launch too.</p>
             <ul class="space-y-1.5 text-sm text-brand-secondary/80">
@@ -273,7 +260,7 @@ const FAQS = [
         <div class="mb-12">
           <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Our Results</span>
           <h2 class="mt-2 text-3xl font-bold text-brand-secondary sm:text-4xl">
-            Real businesses. Real <span class="font-serif italic text-brand-primary">growth</span>.
+            Real businesses. Real <span class="text-brand-primary">growth</span>.
           </h2>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
@@ -281,7 +268,7 @@ const FAQS = [
             <div class="ui-card rounded-[1.75rem] p-8">
               <div class="mb-6 flex items-center justify-between gap-3">
                 <div class="text-xs font-bold uppercase tracking-widest text-muted-foreground">{c.tag}</div>
-                <span class="soft-chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">Case note</span>
+                <span class="soft-chip rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-brand-primary">Verified</span>
               </div>
               <div class="mb-2 text-5xl font-bold tracking-tighter text-brand-primary">{c.metric}</div>
               <p class="mb-6 text-sm text-muted-foreground">{c.label}</p>
@@ -317,29 +304,29 @@ const FAQS = [
         <div class="mb-12">
           <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Pricing</span>
           <h2 class="mt-2 text-3xl font-bold text-brand-secondary sm:text-4xl">
-            Transparent rates. <span class="font-serif italic text-brand-primary">All in PKR</span>.
+            Transparent rates. <span class="text-brand-primary">All in PKR</span>.
           </h2>
         </div>
         <div class="grid gap-6 md:grid-cols-3">
           {PRICING.map((t) => (
             <div class={t.popular
-              ? "ui-card-strong relative rounded-[1.85rem] p-8 text-white"
+              ? "ui-card relative rounded-[1.85rem] border-brand-primary p-8"
               : "ui-card rounded-[1.85rem] p-8"
             }>
               {t.popular && (
-                <div class="absolute -top-3 right-6 rounded-full bg-accent px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-accent-foreground">
+                <div class="absolute -top-3 right-6 rounded-full bg-brand-primary px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-white">
                   Most Popular
                 </div>
               )}
-              <h3 class={`text-lg font-bold ${t.popular ? 'text-white' : 'text-brand-secondary'}`}>{t.name}</h3>
+              <h3 class="text-lg font-bold text-brand-secondary">{t.name}</h3>
               <div class="mt-3 flex items-baseline gap-2">
                 <span class="text-3xl font-bold tracking-tight">{t.price}</span>
-                <span class={`text-xs ${t.popular ? 'text-white/60' : 'text-muted-foreground'}`}>/{t.unit}</span>
+                <span class="text-xs text-muted-foreground">/{t.unit}</span>
               </div>
-              <p class={`mt-3 text-sm ${t.popular ? 'text-white/70' : 'text-muted-foreground'}`}>{t.desc}</p>
+              <p class="mt-3 text-sm text-muted-foreground">{t.desc}</p>
               <ul class="mt-6 space-y-2.5 text-sm">
                 {t.features.map((f) => (
-                  <li class={`flex gap-2 ${t.popular ? 'text-white/90' : 'text-brand-secondary'}`}>
+                  <li class="flex gap-2 text-brand-secondary">
                     <span class="text-accent shrink-0">✓</span> {f}
                   </li>
                 ))}
@@ -349,7 +336,7 @@ const FAQS = [
                 target="_blank"
                 rel="noreferrer"
                 class={t.popular
-                  ? "mt-7 block rounded-xl bg-accent py-3 text-center text-sm font-bold text-accent-foreground transition-all hover:brightness-105"
+                  ? "mt-7 block rounded-xl bg-brand-primary py-3 text-center text-sm font-bold text-white transition-all hover:bg-brand-secondary"
                   : "mt-7 block rounded-xl border border-brand-primary/20 py-3 text-center text-sm font-bold transition-all hover:bg-brand-primary hover:border-transparent hover:text-white"
                 }
               >
@@ -366,11 +353,14 @@ const FAQS = [
       <div class="mx-auto max-w-7xl px-6">
         <div class="mb-12">
           <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Testimonials</span>
+          <h2 class="mt-2 text-3xl font-bold text-brand-secondary sm:text-4xl">
+            What clients actually <span class="text-brand-primary">feel</span>.
+          </h2>
         </div>
         <div class="grid gap-6 md:grid-cols-2">
           {TESTIMONIALS.map((t) => (
             <div class="ui-card rounded-[1.85rem] p-8">
-              <p class="text-xl leading-relaxed text-brand-secondary">
+              <p class="text-xl font-semibold leading-relaxed text-brand-secondary">
                 "{t.quote}"
               </p>
               <div class="mt-6 flex items-center gap-3">
@@ -452,18 +442,22 @@ const FAQS = [
       </div>
     </section>
 
-    <!-- Trust logos -->
+    <!-- Trust -->
     <section class="bg-[#f4efe6] py-16">
       <div class="mx-auto max-w-7xl px-6">
-        <p class="mb-8 text-center text-xs font-bold uppercase tracking-[0.2em] text-muted-foreground">
-          Trusted by businesses in Karachi, Lahore & Islamabad
-        </p>
-        <div class="flex flex-wrap items-center justify-center gap-10 opacity-40 md:gap-20">
-          <div class="text-xl font-black">TECH-PK</div>
-          <div class="text-xl font-black">IndusGlobal</div>
-          <div class="text-xl font-black tracking-widest">ZINC</div>
-          <div class="text-xl font-black uppercase">Noor.Dev</div>
-          <div class="text-xl font-black">Sahara&Co</div>
+        <div class="mb-10">
+          <span class="section-kicker text-xs font-bold uppercase text-brand-primary">Why It Works</span>
+          <h2 class="mt-2 text-3xl font-bold text-brand-secondary sm:text-4xl">
+            Designed around how Pakistani clients <span class="text-brand-primary">actually buy</span>.
+          </h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-3">
+          {TRUST_POINTS.map((point) => (
+            <div class="ui-card rounded-[1.6rem] p-6">
+              <h3 class="text-lg font-bold text-brand-secondary">{point.title}</h3>
+              <p class="mt-3 text-sm leading-relaxed text-muted-foreground">{point.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>
